@@ -1,0 +1,26 @@
+module.exports = app => {
+    app.get("/tracking/usps", (req, res) => {
+        // modelName.getOne(req.body.trackID, (data) => {
+        //     const hbsObject = {
+        //         NameofProperties: data,
+        //     };
+        //     res.render('index', hbsObject);
+        // });
+        // axios.post("/")
+    
+        https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=<TrackRequest USERID="689UCREX6489"><TrackID ID="9405511298370510938918"></TrackID></TrackRequest>
+    
+        axios({
+            method: 'post',
+            url: 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=<TrackRequest USERID="689UCREX6489"><TrackID ID="9405511298370510938918"></TrackID></TrackRequest>',
+            // data: {
+            //   firstName: 'Finn',
+            //   lastName: 'Williams'
+            // }
+          }).then(res =>{
+              console.log(res);
+          });
+    
+    
+    });
+};
