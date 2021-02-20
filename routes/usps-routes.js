@@ -3,22 +3,13 @@ const convert = require("xml-js");
 
 module.exports = app => {
   app.get("/tracking/usps/:id", (req, res) => {
-    // modelName.getOne(req.body.trackID, (data) => {
-    //     const hbsObject = {
-    //         NameofProperties: data,
-    //     };
-    //     res.render('index', hbsObject);
-    // });
-    // axios.post("/")
-
-    //secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=<TrackRequest USERID="689UCREX6489"><TrackID ID="9405511298370510938918"></TrackID></TrackRequest>
-    const trackID = JSON.stringify(req.params.id);
-    console.log(trackID);
     axios({
       method: "POST",
       url:
-        "https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=<TrackRequest USERID='689UCREX6489'><TrackID ID=" +
-        trackID +
+        "https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=<TrackRequest USERID=" +
+        JSON.stringify(process.env.USPS_USER_ID) +
+        "><TrackID ID=" +
+        JSON.stringify(req.params.id) +
         "></TrackID></TrackRequest>"
       // data: {
       //   firstName: 'Finn',
@@ -32,18 +23,20 @@ module.exports = app => {
     });
   });
 
-  app.get("/tracking/ups", (req, res) => {
+  app.get("/tracking/ups/:id", (req, res) => {
+    const packageID = req.params.id;
+
     axios({
       method: "POST",
       url: "https://onlinetools.ups.com/json/Track",
       data: {
         Security: {
           UsernameToken: {
-            Username: "Irate_Swami",
-            Password: "cH@tter259263"
+            Username: process.env.UPS_USERNAME,
+            Password: process.env.UPS_PASSWORD
           },
           UPSServiceAccessToken: {
-            AccessLicenseNumber: "FD94DB0BC94D9FF2"
+            AccessLicenseNumber: process.env.UPS_ACCESSID
           }
         },
         TrackRequest: {
