@@ -1,0 +1,40 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.white {
+    background-color: #fffdeb;
+}
+
+.white2background {
+    background-color: #fffffa;
+}
+
+.white2text {
+    color: #fffffa;
+}
+
+.mustard {
+    background-color: #ffc54e;
+}
+
+.lime {
+    background-color: #8dbd5b;
+}
+
+.blue {
+    background-color: #7abdbd;
+}
+
+.lavender {
+    background-color: #98709f;
+}
+
+.pink {
+    background-color: #be696e;
+}
+
+.black {
+    background-color: #333333;
+    color: white;
+}
