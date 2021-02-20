@@ -6,8 +6,12 @@ body {
     background-color: #fffdeb;
 }
 
-.white2 {
+.white2background {
     background-color: #fffffa;
+}
+
+.white2text {
+    color: #fffffa;
 }
 
 .mustard {
