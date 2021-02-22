@@ -35,6 +35,10 @@ body {
   background-color: #be696e;
 }
 
+.pink-text {
+  color: #be696e;
+}
+
 .black {
   background-color: #333333;
   color: white;
@@ -52,4 +56,16 @@ a:hover {
 .nav.nav-tabs > li > a:hover {
   color: #7abdbd;
   text-decoration: none;
+}
+
+.btn-primary {
+  color: #fffffa;
+  background-color: #333333;
+  border-color: #fffffa; /*set the color you want here*/
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  color: #333333;
+  background-color: #7abdbd;
+  border-color: #fffffa; /*set the color you want here*/
 }
