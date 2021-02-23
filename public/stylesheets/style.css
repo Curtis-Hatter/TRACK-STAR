@@ -1,8 +1,3 @@
-form.signup,
-form.login {
-  margin-top: 50px;
-}
-
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #fffdeb;
@@ -40,7 +35,37 @@ body {
   background-color: #be696e;
 }
 
+.pink-text {
+  color: #be696e;
+}
+
 .black {
   background-color: #333333;
   color: white;
+}
+
+.link-color {
+  color: #98709f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7abdbd;
+}
+
+.nav.nav-tabs > li > a:hover {
+  color: #7abdbd;
+  text-decoration: none;
+}
+
+.btn-primary {
+  color: #fffffa;
+  background-color: #333333;
+  border-color: #fffffa; /*set the color you want here*/
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  color: #333333;
+  background-color: #7abdbd;
+  border-color: #fffffa; /*set the color you want here*/
 }
