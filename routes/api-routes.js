@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -51,12 +51,11 @@ module.exports = function (app) {
     }
   });
 
-
   // ----- Start of Shipments Routes -----
 
   // Route for adding new package to the database
   app.post("/api/newpackage", (req, res) => {
-    db.Shipments.create(req.body).then((dbShipments) => res.json(dbShipments))
+    db.Shipments.create(req.body).then(dbShipments => res.json(dbShipments));
   });
 
   // Route for getting user's pending packages
@@ -67,17 +66,12 @@ module.exports = function (app) {
     });
     // return the result to the user with res.json
     console.log(request);
-    return res.json(request)
+    return res.json(request);
   });
 
-  // Route for getting user's delivered packages
-  app.get("/api/archive", (req, res) => {
+  // // Route for getting user's delivered packages
+  // app.get("/api/archive", (req, res) => {});
 
-  })
-
-  // Route for deleting Shipment
-  app.delete("/api/shipments/:id", (req, res) => {
-
-  })
-
+  // // Route for deleting Shipment
+  // app.delete("/api/shipments/:id", (req, res) => {});
 };
