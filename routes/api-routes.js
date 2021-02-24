@@ -35,7 +35,7 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/");
   });
-
+  
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
@@ -50,4 +50,34 @@ module.exports = function(app) {
       });
     }
   });
+
+  
+// ----- Start of Shipments Routes -----
+
+  // Route for adding new package to the database
+  app.post("/api/newpackage", (req, res) => {
+  db.Shipments.create(req.body).then((dbShipments) => res.json(dbShipments))
+  });
+  
+  // Route for getting user's pending packages
+  // --function incomplete--
+  app.get("/api/members/:id", (req, res) => {
+    const request = await db.shipments.findAll({
+      where: {id:req.params.id} 
+    });
+    // return the result to the user with res.json
+    console.log(request);
+    return res.json(request)
+  });
+  
+  // Route for getting user's delivered packages
+  app.get("/api/archive", (req, res) => {
+
+  })
+
+  // Route for deleting Shipment
+  app.delete("/api/members/:id", (req, res) => {
+
+  })
+  
 };
