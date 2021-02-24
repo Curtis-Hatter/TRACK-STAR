@@ -8,15 +8,19 @@ module.exports = function(sequelize, DataTypes) {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      allowNull: false,
+      allowNull: false
     },
-    first: {
+    // first: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
+    // last: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
+    username: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    last: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
