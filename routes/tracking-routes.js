@@ -44,11 +44,23 @@ module.exports = app => {
             RequestAction: "Track",
             RequestOption: "activity"
           },
-          InquiryNumber: "1Z8F13280392127539"
+
+          InquiryNumber: JSON.stringify(packageID)
         }
       }
     }).then(res => {
       console.log(res.data);
     });
   });
+
+  //NO FREAKING CLUE HOW THIS WORKS!
+  // app.get("/tracking/amazon/:id", (req, res) => {
+  //   const packageID = req.params.id;
+  //   const tracker = new api.Tracker({
+  //     tracking_code: "",
+  //     carrier: "AmazonMws"
+  //   });
+  //   // console.log(tracker);
+  //   tracker.save().then(console.log);
+  //  });
 };
