@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Star</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/svg" href="./img/liluzibolt.svg"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
 
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+<body class = "white">
+  <nav class="navbar navbar-dark black mb-4">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img src="./img/liluzibolt.svg" alt="" width="100">
+          </a>
       </div>
-    </div>
   </nav>
-  <div class="container">
+  <div class="container white">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
+      <div class="col-2">
+
+      </div>
+      <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
+        <h1 class = "p-3 text-center">Welcome Back!</h1>
         <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          <div class="input-group input-group-lg mt-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-mustard.svg" alt="" width="60"></span>
+            </div>
+            <input type="email" class="form-control two-right-round-corners" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          <div class="form-group h2 my-4">
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/lockstar-lime.svg" alt="" width="60"></span>
+              </div>
+              <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Password" required>
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl">Login</button>
+          </div>
+          </form>
         <br />
-        <p>Or sign up <a href="/">here</a></p>
+        <p class = "text-center">Or sign up <a class="link-color" href="/">here</a></p>
+      </div>
+      <div class="col-2">
+
       </div>
     </div>
   </div>
 
+  <footer class="footer py-4 mt-5 font-small text-dark">
+    <div class="footer-copyright text-center container-fluid">
+        © Track Star LLC, 2021
+    </div>
+  </footer>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
 

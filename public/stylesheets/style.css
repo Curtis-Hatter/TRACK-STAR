@@ -1,4 +1,84 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fffdeb;
+}
+
+.white {
+  background-color: #fffdeb;
+}
+
+.white2background {
+  background-color: #fffffa;
+}
+
+.white2text {
+  color: #fffffa;
+}
+
+.mustard {
+  background-color: #ffc54e;
+}
+
+.lime {
+  background-color: #8dbd5b;
+}
+
+.blue {
+  background-color: #7abdbd;
+}
+
+.lavender {
+  background-color: #98709f;
+}
+
+.pink {
+  background-color: #be696e;
+}
+
+.pink-text {
+  color: #be696e;
+}
+
+.black {
+  background-color: #333333;
+  color: white;
+}
+
+.link-color {
+  color: #98709f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7abdbd;
+}
+
+.nav.nav-tabs > li > a:hover {
+  color: #7abdbd;
+  text-decoration: none;
+}
+
+.btn-primary {
+  color: #fffffa;
+  background-color: #333333;
+  border-color: #fffffa; /*set the color you want here*/
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  color: #333333;
+  background-color: #7abdbd;
+  border-color: #fffffa; /*set the color you want here*/
+}
+
+.two-left-round-corners {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 0px;
+}
+
+.btn-xl {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
 }
