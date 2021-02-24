@@ -27,30 +27,44 @@
 
       </div>
       <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
-        <h1 class = "p-3 text-center"> Become a member! </h1>
+        <h1 class = "p-3 text-center"><span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-mustard.svg" alt="" width="60"></span></h1>
         <form class="signup">
-          <div class="form-group h2 mt-2">
-            <label for="email-input">Email address</label>
-            <input type="email" class="form-control mt-2" id="email-input" placeholder="Email" required>
+          <div class="input-group input-group-lg mt-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-mustard.svg" alt="" width="60"></span>
+            </div>
+            <input type="email" class="form-control two-right-round-corners" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required>
           </div>
           <div class="form-group h2 mt-4">
-            <label for="username-input">Username</label>
-            <input type="text" class="form-control mt-2" id="username-input" placeholder="Username" required>
-          </div>
-          <div class="form-group h2 mt-4">
-            <label for="password-input">Password</label>
-            <input type="password" class="form-control mt-2" id="password-input" placeholder="Password" required>
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-blue.svg" alt="" width="60"></span>
+              </div>
+              <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="username-input" placeholder="Username" required>
+            </div>
           </div>
           <div class="form-group h2 my-4">
-            <label for="password-input-check">Confirm Password</label>
-            <input type="password" class="form-control mt-2" id="password-input-check" placeholder="Retype Password" required>
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/lockstar-lime.svg" alt="" width="60"></span>
+              </div>
+              <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Password" required>
+            </div>
+          </div>
+          <div class="form-group h2 my-4">
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/lockstar-lime.svg" alt="" width="60"></span>
+              </div>
+              <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Confirm Password" required>
+            </div>
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary my-4 mx-auto h3">Sign Up</button>
+            <button type="submit" class="btn btn-primary my-4 mx-auto h3 btn-xl">Sign Up</button>
           </div>
           </form>
         <br />

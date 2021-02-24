@@ -69,3 +69,16 @@ a:hover {
   background-color: #7abdbd;
   border-color: #fffffa; /*set the color you want here*/
 }
+
+.two-left-round-corners {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 0px;
+}
+
+.btn-xl {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+}
