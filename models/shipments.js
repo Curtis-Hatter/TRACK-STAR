@@ -1,4 +1,4 @@
-const { BOOLEAN } = require("sequelize/types");
+// const { BOOLEAN } = require("sequelize/types");
 
 module.exports = (sequelize, DataTypes) => {
   const Shipments = sequelize.define("shipments", {
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     delivered: {
-        type: BOOLEAN,
-        allowNull: false
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   });
   // Associates shipment to User
