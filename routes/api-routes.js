@@ -92,10 +92,10 @@ module.exports = function(app) {
   });
 
   // // Route for deleting Shipment
-  app.delete("/api/shipments/:id", (req, res) => {
-    const request = await db.shipments.destroy({
+  // app.delete("/api/shipments/:id", (req, res) => {
+  //   const request = await db.shipments.destroy({
 
-    })
-  });
+  //   })
+  // });
 
 };
