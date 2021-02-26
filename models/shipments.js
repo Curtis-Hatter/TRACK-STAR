@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     delivered: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   });
   // Associates shipment to User
