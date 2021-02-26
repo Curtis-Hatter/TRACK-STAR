@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Star</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="icon" type="image/svg" href="./img/liluzibolt.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body class = "white">
+  <nav class="navbar navbar-dark black">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img src="./img/liluzibolt.svg" alt="" width="100" height="100">
+          </a>
+      </div>
+  </nav>
+  <div class="container white">
+    <div class="row">
+      <div class="col-2">
+
+      </div>
+      <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
+        <!-- <h1 class = "p-3 text-center"> New Package </h1> -->
+                <h1 class="p-3 text-center"><img src="./img/package.svg" alt="" height="50"></h1>
+        <form class="signup">
+          <div class="form-group h4 mt-3">
+            <label for="title-input"><b>Title</b></label>
+            <input type="text" class="form-control mt-2" id="title-input" placeholder="Ex: Cat Bed" required>
+          </div>
+          <div class="form-group h4 mt-4">
+            <label for="description-input"><b>Item Description</b></label>
+            <input type="text" class="form-control mt-2" id="description-input" placeholder="Ex: Grey and white, ordered on ETSY" required>
+          </div>
+          <div class="form-group h4 mt-4 mb-4">
+            <label for="trackingNumber"><b>Tracking Number</b></label>
+            <input type="text" class="form-control mt-2" id="trackingNumber" placeholder="Check shipping confirmation email" required>
+          </div>
+          <div class="form-group h3 mt-3 mb-4 text-center">
+            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"> Select a Carrier </label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+              <option selected>Select a Carrier</option>
+              <option value="FedEx">FedEx</option>
+              <option value="UPS">UPS</option>
+              <option value="Amazon">Amazon</option>
+              <option value="USPS">USPS</option>
+            </select>
+          </div>
+          <h3 class="text-center pink-text mb-2"><b>* All fields are required *</b></h3>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary black my-4 mt-3 h3 link-color-alt btn-xl">Add Package</button>
+          </div>
+          </form>
+        <br /> 
+      </div>
+      <div class="col-2">
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer py-4 font-small text-light">
+    <div class="footer-copyright text-center container-fluid">
+        © Track Star LLC, 2021
+    </div>
+  </footer>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
+
+</body>
+
+</html>
