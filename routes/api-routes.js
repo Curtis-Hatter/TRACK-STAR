@@ -62,7 +62,13 @@ module.exports = function(app) {
   // --function incomplete--
   app.get("/api/shipments/:id", async (req, res) => {
     const request = await db.shipments.findAll({
-      where: { id: req.params.id }
+      where: { 
+        id: req.params.id,
+        delivered: false 
+      },
+      order: [
+        [ 'expDelivery', 'DESC']
+      ] 
     });
     // return the result to the user with res.json
     console.log(request);
