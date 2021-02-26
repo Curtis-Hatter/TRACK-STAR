@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     expDelivery: {
       type: DataTypes.DATEONLY,
       allowNull: true
-    },
+    }
     // delivered: {
     //     type: BOOLEAN,
     //     allowNull: false
