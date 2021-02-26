@@ -1,6 +1,7 @@
 const axios = require("axios");
 const convert = require("xml-js");
 const request = require("request");
+// const { response } = require("express");
 
 module.exports = app => {
   //USPS Tracking api
@@ -18,12 +19,13 @@ module.exports = app => {
       //   firstName: 'Finn',
       //   lastName: 'Williams'
       // }
-    }).then(res => {
+    }).then(response => {
       //   console.log(res.data);
       //the res.data is xml and needs to be converted to json
-      const xml = res.data;
+      const xml = response.data;
       const result = convert.xml2json(xml, { compact: true, spaces: 4 });
       console.log(result);
+      res.send(result);
     });
   });
 
@@ -93,8 +95,10 @@ module.exports = app => {
         throw new Error(error);
       }
       console.log(response.body);
+      res.send(response.body);
     });
   });
+
   // UPS Call returns JSON, THANK YOU!!!
   // Changed password... Now doesn't work
   app.get("/tracking/ups/:id", (req, res) => {
@@ -122,8 +126,9 @@ module.exports = app => {
           InquiryNumber: JSON.stringify(packageID)
         }
       }
-    }).then(res => {
-      console.log(res.data);
+    }).then(response => {
+      console.log(response.data);
+      res.send(response.body);
     });
   });
 
