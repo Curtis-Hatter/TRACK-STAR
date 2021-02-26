@@ -1,5 +1,3 @@
-// const { BOOLEAN } = require("sequelize/types");
-
 module.exports = (sequelize, DataTypes) => {
   const Shipments = sequelize.define("shipments", {
     id: {
