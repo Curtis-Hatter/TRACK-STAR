@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -60,41 +60,43 @@ module.exports = function(app) {
 
   // Route for getting user's pending packages
   // --function incomplete--
-  // app.get("/api/shipments/:id", async (req, res) => {
-  //   const request = await db.shipments.findAll({
-  //     where: {
-  //       id: req.params.id,
-  //       delivered: false
-  //     },
-  //     order: [
-  //       [ 'expDelivery', 'DESC']
-  //     ]
-  //   });
-  //   // return the result to the user with res.json
-  //   console.log(request);
-  //   return res.json(request);
-  // });
+  app.get("/api/shipments/:id", async (req, res) => {
+    const request = await db.shipments.findAll({
+      where: {
+        id: req.params.id,
+        delivered: false
+      },
+      order: [
+        ["expDelivery", "DESC"]
+      ]
+    });
+    // return the result to the user with res.json
+    console.log(request);
+    return res.json(request);
+  });
 
   // // // Route for getting user's delivered packages
-  // app.get("/api/archive/:id", async (req, res) => {
-  //   const request = await db.shipments.findAll({
-  //   where: {
-  //     id: req.params.id,
-  //     delivered: true
-  //   },
-  //   order: [
-  //     ["expDelivery", "DESC"]
-  //   ]
-  // });
-  // // return the result to the user with res.json
-  // console.log(request);
-  // return res.json(request);
-  // });
+  app.get("/api/archive/:id", async (req, res) => {
+    const request = await db.shipments.findAll({
+      where: {
+        id: req.params.id,
+        delivered: true
+      },
+      order: [
+        ["expDelivery", "DESC"]
+      ]
+    });
+    // return the result to the user with res.json
+    console.log(request);
+    return res.json(request);
+  });
 
-  // // Route for deleting Shipment
-  // app.delete("/api/shipments/:id", (req, res) => {
-  //   const request = await db.shipments.destroy({
-
-  //   })
-  // });
+  // Route for deleting Shipment
+  app.delete("/api/shipments/:id", (req, res) => {
+    db.shipments.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then((dbPost) => res.json(dbPost));
+  });
 };
