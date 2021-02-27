@@ -75,9 +75,26 @@ module.exports = function(app) {
   //   return res.json(request);
   // });
 
-  // // Route for getting user's delivered packages
-  // app.get("/api/archive", (req, res) => {});
+  // // // Route for getting user's delivered packages
+  // app.get("/api/archive/:id", async (req, res) => {
+  //   const request = await db.shipments.findAll({
+  //   where: {
+  //     id: req.params.id,
+  //     delivered: true
+  //   },
+  //   order: [
+  //     ["expDelivery", "DESC"]
+  //   ]
+  // });
+  // // return the result to the user with res.json
+  // console.log(request);
+  // return res.json(request);
+  // });
 
   // // Route for deleting Shipment
-  // app.delete("/api/shipments/:id", (req, res) => {});
+  // app.delete("/api/shipments/:id", (req, res) => {
+  //   const request = await db.shipments.destroy({
+
+  //   })
+  // });
 };

@@ -1,0 +1,71 @@
+<nav class="navbar navbar-dark black">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./img/liluzibolt.svg" alt="" width="100" height="100">
+        </a>
+    </div>
+</nav>
+<div class="container white">
+<div class="row">
+    <div class="col-2">
+        {{!-- Empty Column --}}
+    </div>
+    <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
+    <h1 class="p-3 text-center"><img src="./img/member.svg" alt="" height="55"></h1>
+    <form class="signup">
+        <div class="input-group input-group-lg mt-5">
+        <div class="input-group-prepend">
+            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-mustard.svg" alt="" width="60"></span>
+        </div>
+        <input type="email" class="form-control two-right-round-corners" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required>
+        </div>
+        <div class="form-group h2 mt-4">
+        <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-blue.svg" alt="" width="60"></span>
+            </div>
+            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="username-input" placeholder="Username" required>
+        </div>
+        </div>
+        <div class="form-group h2 my-4">
+        <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/lockstar-lime.svg" alt="" width="60"></span>
+            </div>
+            <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Password" required>
+        </div>
+        </div>
+        <div class="form-group h2 my-4">
+        <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/lockstar-lime.svg" alt="" width="60"></span>
+            </div>
+            <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Confirm Password" required>
+        </div>
+        </div>
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+        <div class="text-center">
+            <button id="sign-up-button" type="submit" class="btn btn-primary mt-3  mx-auto h3 btn-xl">Sign Up</button>
+        </div>
+        </form>
+    <br/>
+    <p class = "text-center">Already a member? Sign in <a class="link-color" href="/">here</a></p>
+    </div>
+    <div class="col-2">
+        {{!-- Empty Column --}}
+    </div>
+</div>
+</div>
+
+<footer class="footer py-4 font-small text-light">
+<div class="footer-copyright text-center container-fluid">
+    © Track Star LLC, 2021
+</div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/signup.js"></script>
