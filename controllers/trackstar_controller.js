@@ -6,21 +6,21 @@ const isAuthenticated = require("../config/middleware/isAuthenticated.js");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     if (req.user) {
-      res.redirect("/packages");
+      return res.redirect("/packages");
     }
     res.render("login");
   });
 
   app.get("/signup", (req, res) => {
     if (req.user) {
-      res.redirect("/packages");
+      return res.redirect("/packages");
     }
     res.render("signup");
   });
 
   app.get("/newpackage", (req, res) => {
     if (req.user) {
-      res.redirect("/packages");
+      return res.redirect("/packages");
     }
     res.render("newpackage");
   });
@@ -32,17 +32,20 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
       email: req.user.email,
-      id: req.user.id
+      password: req.user.password
     });
   });
 
   app.post("/api/signup", (req, res) => {
+    // console.log(req.body.email);
     db.User.create({
       email: req.body.email,
+      username: req.body.username,
       password: req.body.password
     })
       .then(() => {
-        res.redirect(307, "/");
+        // res.redirect(307, "/");
+        res.send(true);
       })
       .catch(err => {
         res.status(401).json(err);
