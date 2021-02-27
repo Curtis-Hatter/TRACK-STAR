@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+const expressHandlebars = require("express-handlebars");
 require("dotenv").config();
 
 // Setting up port and requiring models for syncing
@@ -20,10 +21,11 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+require("./controllers/trackstar_controller.js")(app);
 require("./routes/tracking-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
