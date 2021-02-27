@@ -22,7 +22,7 @@ $(document).ready(() => {
       return;
     }
 
-    if (passwordInput !== confirmPassword) {
+    if (userData.passwordInput !== userData.confirmPassword) {
       return alert("Password's don't match");
     }
     // If we have an email and password, run the signUpUser function
