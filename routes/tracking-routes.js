@@ -20,12 +20,38 @@ module.exports = app => {
       //   lastName: 'Williams'
       // }
     }).then(response => {
-      //   console.log(res.data);
+      // console.log(typeof response.data);
       //the res.data is xml and needs to be converted to json
       const xml = response.data;
       const result = convert.xml2json(xml, { compact: true, spaces: 4 });
       console.log(result);
-      res.send(result);
+      if (result.includes("Error")) {
+        res.send("Error: Invalid Input");
+      } else if (
+        result.includes("TrackSummary") &&
+        result.includes("TrackDetail")
+      ) {
+        const beginningtrackSummaryLocation = result.search("_text");
+        const endtrackSummaryLocation = result.search("TrackDetail");
+        // console.log(
+        //   beginningtrackSummaryLocation + " " + endtrackSummaryLocation
+        // );
+        const trackSummary = result.substring(
+          beginningtrackSummaryLocation - 1,
+          endtrackSummaryLocation - 1
+        );
+        console.log(trackSummary);
+        res.send(trackSummary);
+      } else {
+        const beginningtrackSummaryLocation = result.search("_text");
+        // const endtrackSummaryLocation = result.search("TrackDetail");
+        const trackSummary = result.substring(
+          beginningtrackSummaryLocation - 1,
+          result.length - 5
+        );
+        // console.log(result);
+        res.send(trackSummary);
+      }
     });
   });
 
@@ -94,8 +120,19 @@ module.exports = app => {
       if (error) {
         throw new Error(error);
       }
-      console.log(response.body);
-      res.send(response.body);
+      console.log(typeof response.body);
+      const beginningtrackSummaryLocation = response.body.search("status_code");
+      const endtrackSummaryLocation = response.body.search(
+        "carrier_detail_code"
+      );
+      // console.log(
+      //   beginningtrackSummaryLocation + " " + endtrackSummaryLocation
+      // );
+      const trackSummary = response.body.substring(
+        beginningtrackSummaryLocation - 1,
+        endtrackSummaryLocation - 1
+      );
+      res.send(trackSummary);
     });
   });
 
@@ -127,8 +164,21 @@ module.exports = app => {
         }
       }
     }).then(response => {
-      console.log(response.data);
-      res.send(response.body);
+      // console.log(
+      //   response.data.TrackResponse.Shipment.Package.Activity[0].Status
+      // );
+      const detailsofPackage = response.data.Fault;
+      if (detailsofPackage) {
+        res.send(response.data.Fault.detail.Errors);
+      } else if (
+        response.data.TrackResponse.Shipment.Package.Activity[0].Status
+      ) {
+        res.send(
+          response.data.TrackResponse.Shipment.Package.Activity[0].Status
+        );
+      } else {
+        res.send("YOU SERIOUSLY MESSED THIS UP!");
+      }
     });
   });
 
