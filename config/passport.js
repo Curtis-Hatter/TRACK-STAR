@@ -12,18 +12,21 @@ passport.use(
     },
     (email, password, done) => {
       // When a user tries to sign in this code runs
+      // console.log(email);
       db.User.findOne({
         where: {
           email: email
         }
       }).then(dbUser => {
         // If there's no user with the given email or password is wrong
+        // console.log(dbUser);
         if (!dbUser || !dbUser.validPassword(password)) {
           return done(null, false, {
             message: "Incorrect email or password."
           });
         }
         // If none of the above, return the user
+        // console.log("HELLO WORLDS");
         return done(null, dbUser);
       });
     }
