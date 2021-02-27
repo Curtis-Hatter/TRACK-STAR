@@ -6,21 +6,21 @@ const isAuthenticated = require("../config/middleware/isAuthenticated.js");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     if (req.user) {
-      res.redirect("/packages");
+      return res.redirect("/packages");
     }
     res.render("login");
   });
 
   app.get("/signup", (req, res) => {
     if (req.user) {
-      res.redirect("/packages");
+      return res.redirect("/packages");
     }
     res.render("signup");
   });
 
   app.get("/newpackage", (req, res) => {
     if (req.user) {
-      res.redirect("/packages");
+      return res.redirect("/packages");
     }
     res.render("newpackage");
   });
@@ -37,6 +37,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/signup", (req, res) => {
+    console.log(req.body.email);
     db.User.create({
       email: req.body.email,
       username: req.body.username,
