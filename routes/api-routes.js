@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -66,9 +66,7 @@ module.exports = function (app) {
         id: req.params.id,
         delivered: false
       },
-      order: [
-        ["expDelivery", "DESC"]
-      ]
+      order: [["expDelivery", "DESC"]]
     });
     // return the result to the user with res.json
     console.log(request);
@@ -82,9 +80,7 @@ module.exports = function (app) {
         id: req.params.id,
         delivered: true
       },
-      order: [
-        ["expDelivery", "DESC"]
-      ]
+      order: [["expDelivery", "DESC"]]
     });
     // return the result to the user with res.json
     console.log(request);
@@ -93,10 +89,12 @@ module.exports = function (app) {
 
   // Route for deleting Shipment
   app.delete("/api/shipments/:id", (req, res) => {
-    db.shipments.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then((dbPost) => res.json(dbPost));
+    db.shipments
+      .destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(dbPost => res.json(dbPost));
   });
 };
