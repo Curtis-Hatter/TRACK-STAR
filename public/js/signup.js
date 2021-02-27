@@ -7,7 +7,7 @@ $(document).ready(() => {
   const passwordInput = $("input#password-input");
   const confirmPassword = $("input#password-input-check");
   const signUpButton = $("#sign-up-button");
-  signUpButton.click(signUp);
+  
 
   const signUp = event => {
     event.preventDefault();
@@ -21,8 +21,9 @@ $(document).ready(() => {
     if (!userData.email || !userData.password) {
       return;
     }
-
-    if (passwordInput !== confirmPassword) {
+    // console.log();
+    // console.log(confirmPassword.text);
+    if (userData.password !== userData.confirmPassword) {
       return alert("Password's don't match");
     }
     // If we have an email and password, run the signUpUser function
@@ -37,7 +38,7 @@ $(document).ready(() => {
     passwordInput.val("");
     confirmPassword.val("");
   };
-
+  signUpButton.click(signUp);
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(email, username, password) {
@@ -47,7 +48,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/members");
+        window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
