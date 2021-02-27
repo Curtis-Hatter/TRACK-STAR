@@ -21,8 +21,9 @@ $(document).ready(() => {
     if (!userData.email || !userData.password) {
       return;
     }
-    // console.log();
-    // console.log(confirmPassword.text);
+
+    // console.log(userData.passwordInput);
+    // console.log(userData.confirmPassword);
     if (userData.password !== userData.confirmPassword) {
       return alert("Password's don't match");
     }
@@ -51,7 +52,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/");
+        window.location.href = "/";
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
