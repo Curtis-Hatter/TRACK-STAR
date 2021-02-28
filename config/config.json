@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Ch@tt259263",
-    "database": "blogger",
+    "password": "password",
+    "database": "trackstar_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
