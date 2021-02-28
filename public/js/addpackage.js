@@ -4,8 +4,7 @@ $(document).ready(() => {
   const titleInput = $("input#title-input");
   const descriptionInput = $("input#description-input");
   const trackingInput = $("input#tracking-input");
-  const carrierInput = $("input#carrierSelect");
-  const carrierInputValue = carrierInput.text();
+  const carrierInput = $("select#carrierSelect");
   const addPackageButton = $("#sign-up-button");
   
   const addPackage = event => {
@@ -14,7 +13,7 @@ $(document).ready(() => {
       title: titleInput.val().trim(),
       description: descriptionInput.val().trim(),
       tracking: trackingInput.val().trim(),
-      carrier: carrierInputValue
+      carrier: carrierInput.val()
     };
     console.log(packageData);
     newPackage(
