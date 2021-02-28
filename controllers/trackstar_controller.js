@@ -30,10 +30,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    res.json({
-      email: req.user.email,
-      password: req.user.password
-    });
+    res.json(req.user);
   });
 
   app.post("/api/signup", (req, res) => {
