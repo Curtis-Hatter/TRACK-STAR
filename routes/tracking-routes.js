@@ -15,10 +15,6 @@ module.exports = app => {
         "><TrackID ID=" +
         JSON.stringify(req.params.id) +
         "></TrackID></TrackRequest>"
-      // data: {
-      //   firstName: 'Finn',
-      //   lastName: 'Williams'
-      // }
     }).then(response => {
       // console.log(typeof response.data);
       //the res.data is xml and needs to be converted to json
@@ -54,54 +50,6 @@ module.exports = app => {
       }
     });
   });
-
-  //FEDEX Call xml same with USPS
-  // app.get("/tracking/fedex/test", (req, res) => {
-  //   const xmlBodyStr = `<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://fedex.com/ws/track/v18">
-  //   <SOAP-ENV:Body>
-  //      <TrackRequest>
-  //         <WebAuthenticationDetail>
-  //            <UserCredential>
-  //               <Key>Rw8rWDAbeVKwEv4V</Key>
-  //               <Password>zhVDJKpYBtglaJX3HII6NcdUs</Password>
-  //            </UserCredential>
-  //         </WebAuthenticationDetail>
-  //         <ClientDetail>
-  //            <AccountNumber>510087720</AccountNumber>
-  //            <MeterNumber>119196585</MeterNumber>
-  //         </ClientDetail>
-  //         <TransactionDetail>
-  //            <CustomerTransactionId>Track By Number_v18</CustomerTransactionId>
-  //            <Localization>
-  //               <LanguageCode>EN</LanguageCode>
-  //            </Localization>
-  //         </TransactionDetail>
-  //         <Version>
-  //            <ServiceId>trck</ServiceId>
-  //            <Major>18</Major>
-  //            <Intermediate>0</Intermediate>
-  //            <Minor>0</Minor>
-  //         </Version>
-  //         <SelectionDetails>
-  //            <PackageIdentifier>
-  //               <Type>TRACKING_NUMBER_OR_DOORTAG</Type>
-  //               <Value>231300687629630</Value>
-  //            </PackageIdentifier>
-  //         </SelectionDetails>
-  //         <ProcessingOptions>INCLUDE_DETAILED_SCANS</ProcessingOptions>
-  //      </TrackRequest>
-  //     </SOAP-ENV:Body>
-  // </SOAP-ENV:Envelope>`;
-  //   const config = { headers: { "Content-Type": "text/xml" } };
-
-  //   axios
-  //     .post("https://wsbeta.fedex.com/web-services", xmlBodyStr, config)
-  //     .then(res => {
-  //       const xml = res.data;
-  //       const result = convert.xml2json(xml, { compact: true, spaces: 4 });
-  //       console.log(result);
-  //     });
-  // });
 
   //CHANGED API CALL to shipengine passing ID for tracking
   app.get("/tracking/shipengine/fedex/:id", (req, res) => {
