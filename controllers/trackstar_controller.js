@@ -71,8 +71,19 @@ module.exports = function(app) {
 
   // Route for adding new package to the database
   app.post("/api/newpackage", (req, res) => {
+<<<<<<< HEAD
     // console.log("Hello World!");
     db.shipment.create(req.body).then(dbShipments => res.json(dbShipments));
+=======
+    db.shipments
+      .create({
+        title: req.body.title,
+        description: req.body.description,
+        tracking: req.body.tracking,
+        carrier: req.body.carrier
+      })
+      .then(dbShipments => res.json(dbShipments));
+>>>>>>> 338ea6b411b00053837598023d0df7f1094fb308
   });
 
   // Route for getting user's pending packages

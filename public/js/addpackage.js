@@ -31,11 +31,8 @@ $(document).ready(() => {
     trackingInput.val("");
     carrierInput.val("");
   };
-  addPackageButton.click(addPackage);
-
-
+    
   function newPackage(title, description, tracking, carrier) {
-    // console.log(title);
     $.post("/api/newpackage", {
       title: title,
       description: description,
@@ -48,9 +45,10 @@ $(document).ready(() => {
       })
       .catch(handlePackageErr);
   }
-
+    
   function handlePackageErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+  addPackageButton.click(addPackage);
 });
