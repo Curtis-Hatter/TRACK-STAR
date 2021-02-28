@@ -14,35 +14,71 @@
                 <a class="nav-link white2text" href="#">Archive</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white2text" href="#">User Profile</a>
+                <a class="nav-link white2text" href="#">{{username}}</a>
             </li>
         </ul>
     </div>
 </nav>
 <div class="white">
-    <div class="row">
-        <div class="col-1">
-        </div>
-        <div class="container col-10 shadow-lg m-3 rounded white2background">
-            <div class = "row p-5 border-bottom border-secondary">
-                <div class="col-8">
-                    <div class = "row">
-                        <h3>Name of Package</h3>
+    <h2 class = "my-3"> Current Shipments </h2>
+    {{#each shipments}}
+    {{#unless delivered}}
+        <div class="row">
+            <div class="col-1">
+
+            </div>
+                <div class="container col-10 shadow-lg m-3 rounded white2background">
+                    <div class = "row p-5 border-bottom border-secondary">
+                        <div class="col-8">
+                            <div class = "row">
+                                <h3>{{this.title}}</h3>
+                            </div>
+                            <div class = "row">
+                                <h4>{{this.tracking}}</h4>
+                            </div>
+                        </div>
+                        <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
                     </div>
-                    <div class = "row">
-                        <h4>Tracking Number</h4>
+                    <div class = "row p-5">
+                        <h4>{{this.description}}</h4>
                     </div>
                 </div>
-                <h3 class="col-4 ml-auto">Shipping Company</h3>
-            </div>
-            <div class = "row p-5">
-                <h4>Item Description</h4>
+            <div class="col-1">
+        
             </div>
         </div>
-        <div class="col-1">
-    
+    {{/unless}}
+    {{/each}}
+
+    <h2 class = "my-3"> Delivered Packages </h2>
+    {{#each shipments}}
+    {{#if delivered}}
+        <div class="row">
+            <div class="col-1">
+
+            </div>
+                <div class="container col-10 shadow-lg m-3 rounded white2background">
+                    <div class = "row p-5 border-bottom border-secondary">
+                        <div class="col-8">
+                            <div class = "row">
+                                <h3>{{this.title}}</h3>
+                            </div>
+                            <div class = "row">
+                                <h4>{{this.tracking}}</h4>
+                            </div>
+                        </div>
+                        <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+                    </div>
+                    <div class = "row p-5">
+                        <h4>{{this.description}}</h4>
+                    </div>
+                </div>
+            <div class="col-1">
+        
+            </div>
         </div>
-    </div>
+    {{/if}}
+    {{/each}}
 </div>
 
 
