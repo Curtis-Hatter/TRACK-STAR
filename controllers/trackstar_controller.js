@@ -33,6 +33,15 @@ module.exports = function(app) {
     res.json(req.user);
   });
 
+  app.get("/api/user/:email", async (req, res) => {
+    // console.log(req.params.email);
+    const username = await db.User.findOne({
+      where: { email: req.params.email }
+    });
+    // console.log(username.username);
+    res.send(username.username);
+  });
+
   app.post("/api/signup", (req, res) => {
     // console.log(req.body.email);
     db.User.create({
@@ -83,7 +92,7 @@ module.exports = function(app) {
 
   // Route for getting user's pending packages
   app.get("/api/shipments/:id", async (req, res) => {
-    const request = await db.shipments.findAll({
+    const request = await db.shipment.findAll({
       where: {
         id: req.params.id,
         delivered: false
@@ -91,13 +100,13 @@ module.exports = function(app) {
       order: [["expDelivery", "DESC"]]
     });
     // return the result to the user with res.json
-    console.log(request);
+    // console.log(request);
     return res.json(request);
   });
 
   // Route for getting user's delivered packages
   app.get("/api/archive/:id", async (req, res) => {
-    const request = await db.shipments.findAll({
+    const request = await db.shipment.findAll({
       where: {
         id: req.params.id,
         delivered: true
@@ -105,7 +114,7 @@ module.exports = function(app) {
       order: [["expDelivery", "DESC"]]
     });
     // return the result to the user with res.json
-    console.log(request);
+    // console.log(request);
     return res.json(request);
   });
 

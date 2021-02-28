@@ -7,7 +7,11 @@ $(document).ready(() => {
   const carrierInput = $("select#carrierSelect");
   const addPackageButton = $("#sign-up-button");
   
+  // console.log(addPackageButton.value);
+  // console.log("WORLD");
   const addPackage = event => {
+    // setTimeout(() => { alert("Hello"); }, 3000);
+    // console.log("HELLO!!!");
     event.preventDefault();
     const packageData = {
       title: titleInput.val().trim(),
@@ -36,7 +40,8 @@ $(document).ready(() => {
       carrier: carrier
     })
       .then(() => {
-        window.location.reload;
+        // window.location.reload;
+        alert("Something Happened");
       })
       .catch(handlePackageErr);
   }

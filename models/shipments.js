@@ -25,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       defaultValue: false
     }
+    // delivered: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false
+    // }
   });
   // Associates shipment to User
   // Shipments.associate = models => {
