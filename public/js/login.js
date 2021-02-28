@@ -33,7 +33,7 @@ $(document).ready(() => {
       .then(() => {
         $.get("/api/user/" + email).then(response => {
           // console.log(response);
-          localStorage.setItem("currentUser", response);
+          sessionStorage.setItem("currentUser", response);
           // const currentUser = localStorage.getItem("currentUser");
           // alert(currentUser);
         });
