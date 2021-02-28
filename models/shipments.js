@@ -1,10 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const Shipments = sequelize.define("shipments", {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
     tracking: {
       type: DataTypes.STRING,
       allowNull: false
@@ -27,17 +22,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     delivered: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: true,
+      defaultValue: false
     }
   });
   // Associates shipment to User
-  Shipments.associate = models => {
-    Shipments.belongsTo(models.User, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Shipments.associate = models => {
+  //   Shipments.belongsTo(models.User, {
+  //     onDelete: "CASCADE",
+  //     foreignKey: {
+  //       allowNull: true
+  //     }
+  //   });
+  // };
   return Shipments;
 };
