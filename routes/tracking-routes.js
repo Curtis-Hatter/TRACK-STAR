@@ -24,7 +24,7 @@ module.exports = app => {
       //the res.data is xml and needs to be converted to json
       const xml = response.data;
       const result = convert.xml2json(xml, { compact: true, spaces: 4 });
-      console.log(result);
+      // console.log(result);
       if (result.includes("Error")) {
         res.send("Error: Invalid Input");
       } else if (
@@ -40,7 +40,7 @@ module.exports = app => {
           beginningtrackSummaryLocation - 1,
           endtrackSummaryLocation - 1
         );
-        console.log(trackSummary);
+        // console.log(trackSummary);
         res.send(trackSummary);
       } else {
         const beginningtrackSummaryLocation = result.search("_text");
@@ -120,7 +120,7 @@ module.exports = app => {
       if (error) {
         throw new Error(error);
       }
-      console.log(typeof response.body);
+      // console.log(typeof response.body);
       const beginningtrackSummaryLocation = response.body.search("status_code");
       const endtrackSummaryLocation = response.body.search(
         "carrier_detail_code"
@@ -181,44 +181,4 @@ module.exports = app => {
       }
     });
   });
-
-  // app.get("/tracking/shipengine/ups/:id", (req, res) => {
-  //   const id = req.params.id;
-  //   const options = {
-  //     method: "GET",
-  //     url:
-  //       "https://api.shipengine.com/v1/tracking?carrier_code=ups&tracking_number=" +
-  //       id,
-  //     headers: {
-  //       Host: "api.shipengine.com",
-  //       "API-Key": "TEST_KrVo/J2myk1/PbESqE+JUQf/Je4eAENJylD6g4B4iGU"
-  //     }
-  //   };
-  //   request(options, (error, response) => {
-  //     if (error) {
-  //       throw new Error(error);
-  //     }
-  //     console.log(response.body);
-  //   });
-  // });
-
-  //NO FREAKING CLUE HOW THIS WORKS!
-  // app.get("/tracking/amazon/:id", (req, res) => {
-  //   const packageID = req.params.id;
-  //   const tracker = new api.Tracker({
-  //     tracking_code: "",
-  //     carrier: "AmazonMws"
-  //   });
-  //   // console.log(tracker);
-  //   tracker.save().then(console.log);
-  // });
-
-  // app.get("/tracking/fedex/:id", (req, res) => {
-  //   axios.get(
-  //     "https://wsbeta.fedex.com:443/web-services?Password=zhVDJKpYBtglaJX3HII6NcdUs&?AccountNumber=510087720",
-  //     (reap, steap) => {
-  //       console.log(steap);
-  //     }
-  //   );
-  // });
 };

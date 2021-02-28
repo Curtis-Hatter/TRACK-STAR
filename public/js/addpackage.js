@@ -4,19 +4,22 @@ $(document).ready(() => {
   const titleInput = $("input#title-input");
   const descriptionInput = $("input#description-input");
   const trackingInput = $("input#tracking-input");
-  const carrierInput = $("input#carrierSelect");
+  const carrierInput = $("select#carrierSelect");
   const addPackageButton = $("#sign-up-button");
-  addPackageButton.click(addPackage);
-
+  
+  // console.log(addPackageButton.value);
+  // console.log("WORLD");
   const addPackage = event => {
+    // setTimeout(() => { alert("Hello"); }, 3000);
+    // console.log("HELLO!!!");
     event.preventDefault();
     const packageData = {
       title: titleInput.val().trim(),
       description: descriptionInput.val().trim(),
       tracking: trackingInput.val().trim(),
-      carrier: carrierInput
+      carrier: carrierInput.val()
     };
-
+    console.log(packageData);
     newPackage(
       packageData.title,
       packageData.description,
@@ -28,17 +31,20 @@ $(document).ready(() => {
     trackingInput.val("");
     carrierInput.val("");
   };
+  addPackageButton.click(addPackage);
 
-  function newPackage(title, description, tracking, carrier, expDelivery) {
+
+  function newPackage(title, description, tracking, carrier) {
+    // console.log(title);
     $.post("/api/newpackage", {
       title: title,
       description: description,
       tracking: tracking,
-      carrier: carrier,
-      expDelivery: expDelivery
+      carrier: carrier
     })
       .then(() => {
-        window.location.reload;
+        // window.location.reload;
+        alert("Something Happened");
       })
       .catch(handlePackageErr);
   }

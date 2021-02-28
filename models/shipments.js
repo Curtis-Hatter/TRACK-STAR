@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Shipments = sequelize.define("shipments", {
+  const Shipments = sequelize.define("shipment", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -19,10 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    expDelivery: {
-      type: DataTypes.DATEONLY,
       allowNull: true
     },
     delivered: {

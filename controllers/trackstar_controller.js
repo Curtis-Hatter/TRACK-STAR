@@ -71,12 +71,13 @@ module.exports = function(app) {
 
   // Route for adding new package to the database
   app.post("/api/newpackage", (req, res) => {
-    db.Shipments.create(req.body).then(dbShipments => res.json(dbShipments));
+    // console.log("Hello World!");
+    db.shipment.create(req.body).then(dbShipments => res.json(dbShipments));
   });
 
   // Route for getting user's pending packages
   app.get("/api/shipments/:id", async (req, res) => {
-    const request = await db.shipments.findAll({
+    const request = await db.shipment.findAll({
       where: {
         id: req.params.id,
         delivered: false
@@ -84,13 +85,13 @@ module.exports = function(app) {
       order: [["expDelivery", "DESC"]]
     });
     // return the result to the user with res.json
-    console.log(request);
+    // console.log(request);
     return res.json(request);
   });
 
   // Route for getting user's delivered packages
   app.get("/api/archive/:id", async (req, res) => {
-    const request = await db.shipments.findAll({
+    const request = await db.shipment.findAll({
       where: {
         id: req.params.id,
         delivered: true
@@ -98,7 +99,7 @@ module.exports = function(app) {
       order: [["expDelivery", "DESC"]]
     });
     // return the result to the user with res.json
-    console.log(request);
+    // console.log(request);
     return res.json(request);
   });
 
