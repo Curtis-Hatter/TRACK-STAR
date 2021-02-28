@@ -6,8 +6,7 @@ $(document).ready(() => {
   const trackingInput = $("input#tracking-input");
   const carrierInput = $("input#carrierSelect");
   const addPackageButton = $("#sign-up-button");
-  addPackageButton.click(addPackage);
-
+  
   const addPackage = event => {
     event.preventDefault();
     const packageData = {
@@ -16,7 +15,7 @@ $(document).ready(() => {
       tracking: trackingInput.val().trim(),
       carrier: carrierInput
     };
-
+    
     newPackage(
       packageData.title,
       packageData.description,
@@ -28,23 +27,23 @@ $(document).ready(() => {
     trackingInput.val("");
     carrierInput.val("");
   };
-
-  function newPackage(title, description, tracking, carrier, expDelivery) {
+    
+  function newPackage(title, description, tracking, carrier) {
     $.post("/api/newpackage", {
       title: title,
       description: description,
       tracking: tracking,
-      carrier: carrier,
-      expDelivery: expDelivery
+      carrier: carrier
     })
       .then(() => {
         window.location.reload;
       })
       .catch(handlePackageErr);
   }
-
+    
   function handlePackageErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+  addPackageButton.click(addPackage);
 });
