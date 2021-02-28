@@ -8,7 +8,6 @@ $(document).ready(() => {
   const confirmPassword = $("input#password-input-check");
   const signUpButton = $("#sign-up-button");
   
-
   const signUp = event => {
     event.preventDefault();
     const userData = {
