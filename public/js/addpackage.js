@@ -29,12 +29,13 @@ $(document).ready(() => {
     carrierInput.val("");
   };
 
-  function newPackage(title, description, tracking, carrier) {
-    $.post("/api/addPackage", {
+  function newPackage(title, description, tracking, carrier, expDelivery) {
+    $.post("/api/newpackage", {
       title: title,
       description: description,
       tracking: tracking,
-      carrier: carrier
+      carrier: carrier,
+      expDelivery: expDelivery
     })
       .then(() => {
         window.location.reload;
