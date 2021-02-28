@@ -33,6 +33,15 @@ module.exports = function(app) {
     res.json(req.user);
   });
 
+  app.get("/api/user/:email", async (req, res) => {
+    // console.log(req.params.email);
+    const username = await db.User.findOne({
+      where: { email: req.params.email }
+    });
+    // console.log(username.username);
+    res.send(username.username);
+  });
+
   app.post("/api/signup", (req, res) => {
     // console.log(req.body.email);
     db.User.create({
@@ -71,10 +80,6 @@ module.exports = function(app) {
 
   // Route for adding new package to the database
   app.post("/api/newpackage", (req, res) => {
-<<<<<<< HEAD
-    // console.log("Hello World!");
-    db.shipment.create(req.body).then(dbShipments => res.json(dbShipments));
-=======
     db.shipments
       .create({
         title: req.body.title,
@@ -83,7 +88,6 @@ module.exports = function(app) {
         carrier: req.body.carrier
       })
       .then(dbShipments => res.json(dbShipments));
->>>>>>> 338ea6b411b00053837598023d0df7f1094fb308
   });
 
   // Route for getting user's pending packages
