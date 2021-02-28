@@ -20,9 +20,9 @@ module.exports = function(app) {
 
   app.get("/newpackage", (req, res) => {
     if (req.user) {
-      return res.redirect("/packages");
+      return res.render("newpackage");
     }
-    res.render("newpackage");
+    res.redirect("/");
   });
 
   app.get("/packages", isAuthenticated, (req, res) => {
