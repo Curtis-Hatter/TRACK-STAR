@@ -1,19 +1,5 @@
-// // prettier-ignore
-// $(document).ready(() => {
+$(document).ready(() => {
+  const username = localStorage.getItem("currentUser");
 
-//   const title = $("#");
-//   const description = $("#");
-//   const tracking = $("#");
-//   const carrier = $("#");
-
-//   function getPackages(title, description, tracking, carrier, expDelivery) {
-//     $.get("/api/shipments", {
-//     //   const shipments = await
-//     })
-//       .then(() => {
-//         window.location.reload;
-//       })
-//       .catch(handlePackageErr);
-//   }
-
-// });
+  $("#lil-uzi").attr("href", `/packages/${username}`);
+});

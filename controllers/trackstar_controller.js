@@ -2,9 +2,11 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated.js");
+// const currentUser = localStorage.getItem("currentUser");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
+    // console.log(req.User);
     if (req.user) {
       return res.redirect("/packages");
     }
@@ -25,12 +27,37 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-  app.get("/packages", isAuthenticated, (req, res) => {
-    res.render("index");
+  app.get("/packages/:id", isAuthenticated, async (req, res) => {
+    const shipments = await db.shipments.findAll({
+      where: {
+        user: req.params.id
+        // delivered: false
+      },
+      raw: true
+      // order: [["expDelivery", "DESC"]]
+    });
+    // console.log(shipments[0].dataValues);
+
+    // const hbsObject = {
+    //   shipments: shipments[0].dataValues
+    // };
+    // console.log(hbsObject);
+    // console.log(shipments);
+    // console.log(shipments[0].dataValues);
+    res.render("index", { shipments: shipments });
   });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json(req.user);
+  });
+
+  app.get("/api/user/:email", async (req, res) => {
+    // console.log(req.params.email);
+    const username = await db.User.findOne({
+      where: { email: req.params.email }
+    });
+    // console.log(username.username);
+    res.send(username.username);
   });
 
   app.post("/api/signup", (req, res) => {
@@ -73,6 +100,7 @@ module.exports = function(app) {
   app.post("/api/newpackage", (req, res) => {
     db.shipments
       .create({
+        user: req.body.user,
         title: req.body.title,
         description: req.body.description,
         tracking: req.body.tracking,
@@ -82,32 +110,33 @@ module.exports = function(app) {
   });
 
   // Route for getting user's pending packages
-  app.get("/api/shipments/:id", async (req, res) => {
-    const request = await db.shipments.findAll({
-      where: {
-        id: req.params.id,
-        delivered: false
-      },
-      order: [["expDelivery", "DESC"]]
-    });
-    // return the result to the user with res.json
-    console.log(request);
-    return res.json(request);
-  });
+  // app.get("/api/shipments/:id", async (req, res) => {
+  //   const request = await db.shipments.findAll({
+  //     where: {
+  //       id: req.params.id
+  //       // delivered: false
+  //     }
+  //     // order: [["expDelivery", "DESC"]]
+  //   });
+  //   // return the result to the user with res.json
+  //   // console.log(request);
+  //   // return res.render("index", request);
+  //   res.send(request);
+  // });
 
   // Route for getting user's delivered packages
-  app.get("/api/archive/:id", async (req, res) => {
-    const request = await db.shipments.findAll({
-      where: {
-        id: req.params.id,
-        delivered: true
-      },
-      order: [["expDelivery", "DESC"]]
-    });
-    // return the result to the user with res.json
-    console.log(request);
-    return res.json(request);
-  });
+  // app.get("/api/archive/:id", async (req, res) => {
+  //   const request = await db.shipment.findAll({
+  //     where: {
+  //       id: req.params.id,
+  //       delivered: true
+  //     },
+  //     order: [["expDelivery", "DESC"]]
+  //   });
+  //   // return the result to the user with res.json
+  //   // console.log(request);
+  //   return res.json(request);
+  // });
 
   // Route for deleting Shipment
   app.delete("/api/shipments/:id", (req, res) => {

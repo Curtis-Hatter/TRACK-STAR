@@ -31,7 +31,14 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.href = "/packages";
+        $.get("/api/user/" + email).then(response => {
+          // console.log(response);
+          localStorage.setItem("currentUser", response);
+          // const currentUser = localStorage.getItem("currentUser");
+          // alert(currentUser);
+        });
+        const id = localStorage.getItem("currentUser");
+        window.location.href = "/packages/" + id;
         // If there's an error, log the error
       })
       .catch(err => {

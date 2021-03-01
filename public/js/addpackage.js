@@ -6,21 +6,28 @@ $(document).ready(() => {
   const trackingInput = $("input#tracking-input");
   const carrierInput = $("select#carrierSelect");
   const addPackageButton = $("#sign-up-button");
-  
+  const username = localStorage.getItem("currentUser");
+  // console.log(username);
+  // console.log(addPackageButton.value);
+  // console.log("WORLD");
   const addPackage = event => {
+    // setTimeout(() => { alert("Hello"); }, 3000);
+    // console.log("HELLO!!!");
     event.preventDefault();
     const packageData = {
       title: titleInput.val().trim(),
       description: descriptionInput.val().trim(),
       tracking: trackingInput.val().trim(),
-      carrier: carrierInput.val()
+      carrier: carrierInput.val(),
+      id: username
     };
-    console.log(packageData);
+    // console.log(packageData);
     newPackage(
       packageData.title,
       packageData.description,
       packageData.tracking,
-      packageData.carrier
+      packageData.carrier,
+      packageData.id
     );
     titleInput.val("");
     descriptionInput.val("");
@@ -28,15 +35,17 @@ $(document).ready(() => {
     carrierInput.val("");
   };
     
-  function newPackage(title, description, tracking, carrier) {
+  function newPackage(title, description, tracking, carrier, id) {
     $.post("/api/newpackage", {
       title: title,
       description: description,
       tracking: tracking,
-      carrier: carrier
+      carrier: carrier,
+      user: id
     })
       .then(() => {
         window.location.reload;
+        // alert("Something Happened");
       })
       .catch(handlePackageErr);
   }
@@ -46,4 +55,6 @@ $(document).ready(() => {
     $("#alert").fadeIn(500);
   }
   addPackageButton.click(addPackage);
+
+  $("#lil-uzi").attr("href", `/packages/${username}`);
 });

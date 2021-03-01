@@ -1,58 +1,61 @@
 <nav class="navbar navbar-dark black">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" id="lil-uzi" href="/">
             <img src="./img/liluzibolt-white2.svg" alt="" height="100">
         </a>
     </div>
 </nav>
 <div class="container white">
-<div class="row">
-    <div class="col-2">
-        {{!-- Empty Column --}}
-    </div>
-    <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
-    <!-- <h1 class = "p-3 text-center"> New Package </h1> -->
+    <div class="row">
+        <div class="col-2">
+            {{!-- Empty Column --}}
+        </div>
+        <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
+            <!-- <h1 class = "p-3 text-center"> New Package </h1> -->
             <h1 class="p-3 text-center"><img src="./img/package.svg" alt="" height="50"></h1>
-    <form class="signup">
-        <div class="form-group h4 mt-3">
-        <label for="title-input"><b>Title</b></label>
-        <input type="text" class="form-control mt-2" id="title-input" placeholder="Ex: Cat Bed" required>
+            <form class="signup">
+                <div class="form-group h4 mt-3">
+                    <label for="title-input"><b>Title</b></label>
+                    <input type="text" class="form-control mt-2" id="title-input" placeholder="Ex: Cat Bed" required>
+                </div>
+                <div class="form-group h4 mt-4">
+                    <label for="description-input"><b>Item Description</b></label>
+                    <input type="text" class="form-control mt-2" id="description-input"
+                        placeholder="Ex: Grey and white, ordered on ETSY" required>
+                </div>
+                <div class="form-group h4 mt-4 mb-4">
+                    <label for="tracking-input"><b>Tracking Number</b></label>
+                    <input type="text" class="form-control mt-2" id="tracking-input"
+                        placeholder="Check shipping confirmation email" required>
+                </div>
+                <div class="form-group h3 mt-3 mb-4 text-center">
+                    <label class="mr-sm-2 sr-only" for="carrierSelect"> Select a Carrier </label>
+                    <select class="custom-select mr-sm-2" id="carrierSelect" required>
+                        <option selected>Select a Carrier</option>
+                        <option value="UPS">UPS</option>
+                        <option value="FedEx">FedEx</option>
+                        <option value="USPS">USPS</option>
+                    </select>
+                </div>
+                <h3 class="text-center pink-text mb-2"><b>* All fields are required *</b></h3>
+                <h3 class="text-center pink-text mb-2"><b>* Available carriers are displayed *</b></h3>
+                <div class="text-center">
+                    <button type="submit" id="sign-up-button"
+                        class="btn btn-primary black my-4 mt-3 h3 link-color-alt btn-xl">Add Package</button>
+                </div>
+            </form>
+            <br />
         </div>
-        <div class="form-group h4 mt-4">
-        <label for="description-input"><b>Item Description</b></label>
-        <input type="text" class="form-control mt-2" id="description-input" placeholder="Ex: Grey and white, ordered on ETSY" required>
+        <div class="col-2">
+            {{!-- Empty Column --}}
         </div>
-        <div class="form-group h4 mt-4 mb-4">
-        <label for="tracking-input"><b>Tracking Number</b></label>
-        <input type="text" class="form-control mt-2" id="tracking-input" placeholder="Check shipping confirmation email" required>
-        </div>
-        <div class="form-group h3 mt-3 mb-4 text-center">
-        <label class="mr-sm-2 sr-only" for="carrierSelect"> Select a Carrier </label>
-        <select class="custom-select mr-sm-2" id="carrierSelect" required>
-            <option select>Select a Carrier</option>
-            <option value="UPS">UPS</option>
-            <option value="FedEx">FedEx</option>
-            <option value="USPS">USPS</option>
-        </select>
-        </div>
-        <h3 class="text-center pink-text mb-2"><b>* All fields are required *</b></h3>
-        <h3 class="text-center pink-text mb-2"><b>* Available carriers are displayed *</b></h3>
-        <div class="text-center">
-        <button type="submit" id="sign-up-button" class="btn btn-primary black my-4 mt-3 h3 link-color-alt btn-xl">Add Package</button>
-        </div>
-        </form>
-    <br /> 
     </div>
-    <div class="col-2">
-        {{!-- Empty Column --}}
-    </div>
-</div>
 </div>
 
 <footer class="footer py-4 font-small text-light">
-<div class="footer-copyright text-center container-fluid">
-    © Track Star LLC, 2021
-</div>
+    <div class="footer-copyright text-center container-fluid">
+        © Track Star LLC, 2021
+    </div>
 </footer>
 
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
