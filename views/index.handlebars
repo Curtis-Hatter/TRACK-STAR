@@ -11,18 +11,30 @@
                 <a class="nav-link white2text" href="#">Delivered</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white2text" href="#">Archive</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link white2text" href="#">{{username}}</a>
+                <a class="nav-link white2text" href="#">Log Out</a>
             </li>
         </ul>
     </div>
 </nav>
-<div class="white">
-    <h2 class="my-3"> Current Shipments </h2>
-    {{#each shipments}}
-    {{#unless this.delivered}}
+{{! add package button begins }}
+
+    <div class="row">
+        <div class="container col-12 header-style">
+            <img src="img/pending-orders.svg" width="60%">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="container-fluid row-btn">
+                <button class="btn btn-primary black h3 link-color-alt btn-xl justify-content-end">Add
+                    Package</button>
+            </div>
+        </div>
+    </div>
+
+    {{! add package button ends }}
+
+    {{! pending orders begins }}
     <div class="row">
         <div class="col-1">
 
@@ -31,54 +43,135 @@
             <div class="row p-5 border-bottom border-secondary">
                 <div class="col-8">
                     <div class="row">
-                        <h3>{{title}}</h3>
+
+                        <h3><b>Name of Package</b></h3>
                     </div>
                     <div class="row">
-                        <h4>{{tracking}}</h4>
+                        <a href="#" alt="Tracking Number">
+                            <h4>Tracking Number</h4>
+                        </a>
                     </div>
                 </div>
-                <h3 class="col-4 ml-auto">{{carrier}}</h3>
+                <h3 class="col-4 ml-auto"><img src="img/usps.svg" width="50%"></h3>
             </div>
             <div class="row p-5">
-                <h4>{{description}}</h4>
+                <h4><i>Item Description</i></h4>
+            </div>
+            <div>
+                <img src="img/placed.svg" class="mb-3" alt="Your order has been placed">
             </div>
         </div>
         <div class="col-1">
-
         </div>
     </div>
-    {{/unless}}
-    {{/each}}
+</div>
 
-    <h2 class="my-3"> Delivered Packages </h2>
-    {{#each shipments}}
-    {{#if delivered}}
+
+{{! pending orders ends }}
+
+{{#each shipments}}
+{{#unless delivered}}
+
+<div class="row">
+    <div class="col-1">
+
+    </div>
+    <div class="container col-10 shadow-lg m-3 rounded white2background">
+        <div class="row p-5 border-bottom border-secondary">
+            <div class="col-8">
+                <div class="row">
+                    <h3></h3>
+                    <h3><b>{{this.title}}</b></h3>
+                </div>
+                <div class="row">
+                    <a href="#" alt="Tracking Number">
+                        <h4>{{this.tracking}}</h4>
+                    </a>
+                </div>
+            </div>
+            <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+        </div>
+        <div class="row p-5">
+            <h4><i>{{this.description}}</i></h4>
+        </div>
+    </div>
+    <div class="col-1">
+
+    </div>
+</div>
+{{/unless}}
+{{/each}}
+
+{{! delivered orders begins }}
+ <div class="row">
+        <div class="container col-12 header-style">
+            <img src="img/delivered-orders.svg" width="68%">
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-1">
-
+        
         </div>
         <div class="container col-10 shadow-lg m-3 rounded white2background">
             <div class="row p-5 border-bottom border-secondary">
                 <div class="col-8">
                     <div class="row">
-                        <h3>{{title}}</h3>
+                        <h3><b>Name of Package</b></h3>
                     </div>
                     <div class="row">
-                        <h4>{{tracking}}</h4>
+                        <a href="#" alt="Tracking Number">
+                            <h4>Tracking Number</h4>
+                        </a>
                     </div>
                 </div>
-                <h3 class="col-4 ml-auto">{{carrier}}</h3>
+                <h3 class="col-4 ml-auto"><img src="img/ups.svg" width="50%"></h3>
             </div>
             <div class="row p-5">
-                <h4>{{description}}</h4>
+                <h4><i>Item Description</i></h4>
+            </div>
+            <div>
+                <img src="img/delivered.svg" class="mb-3" alt="Your order has been delivered">
             </div>
         </div>
         <div class="col-1">
-
         </div>
     </div>
-    {{/if}}
-    {{/each}}
+
+<div class="row">
+    <div class="col-1">
+
+    </div>
+    <div class="container col-10 shadow-lg m-3 rounded white2background">
+        <div class="row p-5 border-bottom border-secondary">
+            <div class="col-8">
+                <div class="row">
+                    <h3><b>{{this.title}}</b></h3>
+                </div>
+                <div class="row">
+                    <a href="https//:www.google.com/{{this.tracking}}" alt="Tracking Number">
+                    <h4>{{this.tracking}}</h4>
+                    </a>
+                </div>
+            </div>
+            <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+        </div>
+        <div class="row p-5">
+            <h4>{{this.description}}</h4>
+        </div>
+    </div>
+    <div class="col-1">
+    </div>
+</div>
+{{! delivered orders ends }}
+
+{{#each shipments}}
+{{#if delivered}}
+
+
+
+{{/if}}
+{{/each}}
 </div>
 
 
