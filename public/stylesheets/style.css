@@ -82,3 +82,13 @@ a:hover {
   font-size: 20px;
   border-radius: 10px;
 }
+
+.row-btn {
+  display: flex;
+  justify-content: left;
+}
+
+.header-style {
+  display:flex;
+  justify-content: center;
+}
