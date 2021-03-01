@@ -40,8 +40,8 @@ $(document).ready(() => {
       carrier: carrier
     })
       .then(() => {
-        // window.location.reload;
-        alert("Something Happened");
+        window.location.reload;
+        // alert("Something Happened");
       })
       .catch(handlePackageErr);
   }
