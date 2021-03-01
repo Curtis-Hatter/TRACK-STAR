@@ -1,5 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Shipments = sequelize.define("shipments", {
+    user: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     tracking: {
       type: DataTypes.STRING,
       allowNull: false
@@ -25,14 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       defaultValue: false
     }
-    // delivered: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false
-    // }
   });
   // Associates shipment to User
   // Shipments.associate = models => {
-  //   Shipments.belongsTo(models.User, {
+  //   Shipments.belongsTo(models.User.username, {
   //     onDelete: "CASCADE",
   //     foreignKey: {
   //       allowNull: true
