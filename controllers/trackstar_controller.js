@@ -6,7 +6,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated.js");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    console.log(req.User);
+    // console.log(req.User);
     if (req.user) {
       return res.redirect("/packages");
     }

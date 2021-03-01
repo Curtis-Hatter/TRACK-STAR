@@ -55,4 +55,6 @@ $(document).ready(() => {
     $("#alert").fadeIn(500);
   }
   addPackageButton.click(addPackage);
+
+  $("#lil-uzi").attr("href", `/packages/${username}`);
 });
