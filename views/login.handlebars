@@ -1,53 +1,57 @@
 <nav class="navbar navbar-dark black mb-4">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand">
             <img src="./img/logo-white1.svg" alt="" height="100">
         </a>
     </div>
 </nav>
 <div class="container white">
-<div class="row">
-    <div class="col-2">
-        {{!-- Empty Column --}}
+    <div class="row">
+        <div class="col-2">
+            {{!-- Empty Column --}}
+        </div>
+        <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
+            <h1 class="p-3 text-center mb-2"><img src="./img/welcome.svg" alt="" height="55"></h1>
+            <form class="login">
+                <div class="input-group input-group-lg mt-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img
+                                src="./img/liluzibolt-mustard.svg" alt="" width="60"></span>
+                    </div>
+                    <input type="email" class="form-control two-right-round-corners" aria-label="Large"
+                        aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required>
+                </div>
+                <div class="form-group h2 my-4">
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img
+                                    src="./img/lockstar-lime.svg" alt="" width="60"></span>
+                        </div>
+                        <input type="password" class="form-control" aria-label="Large"
+                            aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Password" required>
+                    </div>
+                </div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl">Login</button>
+                </div>
+            </form>
+            <br />
+            <p class="text-center">Not a member? Sign Up <a class="link-color" href="/signup">HERE!</a></p>
+        </div>
+        <div class="col-2">
+            {{!-- Empty Column --}}
+        </div>
     </div>
-    <div class="col-8 shadow-lg p-5 my-5 white2background rounded">
-    <h1 class="p-3 text-center mb-2"><img src="./img/welcome.svg" alt="" height="55"></h1>
-    <form class="login">
-        <div class="input-group input-group-lg mt-4">
-        <div class="input-group-prepend">
-            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/liluzibolt-mustard.svg" alt="" width="60"></span>
-        </div>
-        <input type="email" class="form-control two-right-round-corners" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required>
-        </div>
-        <div class="form-group h2 my-4">
-        <div class="input-group input-group-lg">
-            <div class="input-group-prepend">
-            <span class="input-group-text black two-left-round-corners" id="inputGroup-sizing-lg"><img src="./img/lockstar-lime.svg" alt="" width="60"></span>
-            </div>
-            <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Password" required>
-        </div>
-        </div>
-        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Error:</span> <span class="msg"></span>
-        </div>
-        <div class="text-center">
-        <button type="submit" class="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl">Login</button>
-        </div>
-        </form>
-    <br />
-    <p class = "text-center">Not a member? Sign Up <a class="link-color" href="/signup">HERE!</a></p>
-    </div>
-    <div class="col-2">
-        {{!-- Empty Column --}}
-    </div>
-</div>
 </div>
 
 <footer class="footer py-4 mt-5 font-small text-dark">
-<div class="footer-copyright text-center container-fluid">
-    © Track Star LLC, 2021
-</div>
+    <div class="footer-copyright text-center container-fluid">
+        © Track Star LLC, 2021
+    </div>
 </footer>
 
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>

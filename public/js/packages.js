@@ -1,19 +1,17 @@
-// // prettier-ignore
+// // // prettier-ignore
 // $(document).ready(() => {
+//   //   const title = $("#");
+//   //   const description = $("#");
+//   //   const tracking = $("#");
+//   //   const carrier = $("#");
 
-//   const title = $("#");
-//   const description = $("#");
-//   const tracking = $("#");
-//   const carrier = $("#");
-
-//   function getPackages(title, description, tracking, carrier, expDelivery) {
-//     $.get("/api/shipments", {
-//     //   const shipments = await
+//   function getPackages(id) {
+//     $.get("/api/shipments/" + id, {
+//       //   const shipments = await
 //     })
 //       .then(() => {
 //         window.location.reload;
 //       })
 //       .catch(handlePackageErr);
 //   }
-
 // });

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark black mb-5">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="./img/liluzibolt-white2.svg" alt="" height="100">
+        <a class="navbar-brand" id="lil-uzi" href="/">
+            <img src="/img/liluzibolt-white2.svg" alt="" height="100">
         </a>
         <ul class="nav nav-tabs justify-content-end">
             <li class="nav-item">
@@ -20,63 +20,63 @@
     </div>
 </nav>
 <div class="white">
-    <h2 class = "my-3"> Current Shipments </h2>
+    <h2 class="my-3"> Current Shipments </h2>
     {{#each shipments}}
-    {{#unless delivered}}
-        <div class="row">
-            <div class="col-1">
+    {{#unless this.delivered}}
+    <div class="row">
+        <div class="col-1">
 
-            </div>
-                <div class="container col-10 shadow-lg m-3 rounded white2background">
-                    <div class = "row p-5 border-bottom border-secondary">
-                        <div class="col-8">
-                            <div class = "row">
-                                <h3>{{this.title}}</h3>
-                            </div>
-                            <div class = "row">
-                                <h4>{{this.tracking}}</h4>
-                            </div>
-                        </div>
-                        <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+        </div>
+        <div class="container col-10 shadow-lg m-3 rounded white2background">
+            <div class="row p-5 border-bottom border-secondary">
+                <div class="col-8">
+                    <div class="row">
+                        <h3>{{title}}</h3>
                     </div>
-                    <div class = "row p-5">
-                        <h4>{{this.description}}</h4>
+                    <div class="row">
+                        <h4>{{tracking}}</h4>
                     </div>
                 </div>
-            <div class="col-1">
-        
+                <h3 class="col-4 ml-auto">{{carrier}}</h3>
+            </div>
+            <div class="row p-5">
+                <h4>{{description}}</h4>
             </div>
         </div>
+        <div class="col-1">
+
+        </div>
+    </div>
     {{/unless}}
     {{/each}}
 
-    <h2 class = "my-3"> Delivered Packages </h2>
+    <h2 class="my-3"> Delivered Packages </h2>
     {{#each shipments}}
     {{#if delivered}}
-        <div class="row">
-            <div class="col-1">
+    <div class="row">
+        <div class="col-1">
 
-            </div>
-                <div class="container col-10 shadow-lg m-3 rounded white2background">
-                    <div class = "row p-5 border-bottom border-secondary">
-                        <div class="col-8">
-                            <div class = "row">
-                                <h3>{{this.title}}</h3>
-                            </div>
-                            <div class = "row">
-                                <h4>{{this.tracking}}</h4>
-                            </div>
-                        </div>
-                        <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+        </div>
+        <div class="container col-10 shadow-lg m-3 rounded white2background">
+            <div class="row p-5 border-bottom border-secondary">
+                <div class="col-8">
+                    <div class="row">
+                        <h3>{{title}}</h3>
                     </div>
-                    <div class = "row p-5">
-                        <h4>{{this.description}}</h4>
+                    <div class="row">
+                        <h4>{{tracking}}</h4>
                     </div>
                 </div>
-            <div class="col-1">
-        
+                <h3 class="col-4 ml-auto">{{carrier}}</h3>
+            </div>
+            <div class="row p-5">
+                <h4>{{description}}</h4>
             </div>
         </div>
+        <div class="col-1">
+
+        </div>
+    </div>
     {{/if}}
     {{/each}}
 </div>
@@ -89,4 +89,5 @@
 </footer>
 
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/homepage.js"></script>
