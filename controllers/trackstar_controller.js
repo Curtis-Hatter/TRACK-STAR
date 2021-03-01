@@ -82,6 +82,7 @@ module.exports = function(app) {
   app.post("/api/newpackage", (req, res) => {
     db.shipments
       .create({
+        id: req.body.id,
         title: req.body.title,
         description: req.body.description,
         tracking: req.body.tracking,
