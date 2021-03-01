@@ -6,8 +6,8 @@ $(document).ready(() => {
   const trackingInput = $("input#tracking-input");
   const carrierInput = $("select#carrierSelect");
   const addPackageButton = $("#sign-up-button");
-  const username = sessionStorage.getItem("currentUser");
-  
+  const username = localStorage.getItem("currentUser");
+  // console.log(username);
   // console.log(addPackageButton.value);
   // console.log("WORLD");
   const addPackage = event => {
@@ -21,7 +21,7 @@ $(document).ready(() => {
       carrier: carrierInput.val(),
       id: username
     };
-    console.log(packageData);
+    // console.log(packageData);
     newPackage(
       packageData.title,
       packageData.description,
@@ -41,7 +41,7 @@ $(document).ready(() => {
       description: description,
       tracking: tracking,
       carrier: carrier,
-      id: id
+      user: id
     })
       .then(() => {
         window.location.reload;

@@ -33,12 +33,12 @@ $(document).ready(() => {
       .then(() => {
         $.get("/api/user/" + email).then(response => {
           // console.log(response);
-          sessionStorage.setItem("currentUser", response);
+          localStorage.setItem("currentUser", response);
           // const currentUser = localStorage.getItem("currentUser");
           // alert(currentUser);
         });
-
-        window.location.href = "/packages";
+        const id = localStorage.getItem("currentUser");
+        window.location.href = "/packages/" + id;
         // If there's an error, log the error
       })
       .catch(err => {

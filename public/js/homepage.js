@@ -1,19 +1,27 @@
 // // prettier-ignore
-// $(document).ready(() => {
 
+// const { response } = require("express");
+
+// console.log("SUP!");
+// $(document).ready(() => {
 //   const title = $("#");
 //   const description = $("#");
 //   const tracking = $("#");
 //   const carrier = $("#");
-
-//   function getPackages(title, description, tracking, carrier, expDelivery) {
-//     $.get("/api/shipments", {
-//     //   const shipments = await
+//   const id = sessionStorage.getItem("currentUser");
+//   //   console.log(id);
+//   function getPackages(id) {
+//     $.get("/api/shipments/" + id, {
+//       //   const shipments = await
 //     })
-//       .then(() => {
-//         window.location.reload;
+//       .then(res => {
+//         // window.location.reload;
+//         // alert("hello");
+//         // response.render("index");
+//         $() = res.title;
 //       })
-//       .catch(handlePackageErr);
+//       .catch();
 //   }
 
+//   getPackages(id);
 // });
