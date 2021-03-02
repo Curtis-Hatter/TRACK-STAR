@@ -16,46 +16,46 @@
         </ul>
     </div>
 </nav>
-{{! add package button begins }}
-<div class="container"
-    <div class="row">
-        <div class="container col-12 header-style">
-            <img src="/img/pending-orders.svg" width="60%">
+
+<div>
+    <div class = "row">
+        <div class = "col-1">
+            {{!-- empty column --}}
         </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <div class="container-fluid row-btn">
-                <a class="btn btn-primary black h3 link-color-alt btn-xl justify-content-end" href="/newpackage">Add
-                    Package</a>
+        <div class="col-10">
+            <div class="container col-12 text-center header-style">
+                <img src="/img/pending-orders.svg" width="90%">
+            </div>
+            <div class="mt-4 row-btn text-center">
+                <button class="btn btn-primary black h3 link-color-alt btn-xl" href="/newpackage">Add
+                    Package</button>
             </div>
         </div>
+        <div class = "col-1">
+            {{!-- empty column --}}
+        </div>
     </div>
 
-    {{! add package button ends }}
-
-    {{! pending orders begins }}
     <div class="row">
         <div class="col-1">
 
         </div>
-        <div class="container col-10 shadow-lg m-3 rounded white2background">
-            <div class="row p-5 border-bottom border-secondary">
-                <div class="col-8">
+        <div class="container col-10 shadow-lg my-3 rounded white2background">
+            <div class="row py-4 px-5 border-bottom border-secondary">
+                <div class="col-10">
                     <div class="row">
-
-                        <h3><b>Name of Package</b></h3>
+                        <h1><b>Name of Package</b></h1>
                     </div>
                     <div class="row">
-                        <a href="#" alt="Tracking Number">
-                            <h4>Tracking Number</h4>
+                        <a href="https//:www.google.com/" alt="Tracking Number">
+                            <h2>Tracking Number</h2>
                         </a>
                     </div>
                 </div>
-                <h3 class="col-4 ml-auto"><img src="/img/usps.svg" width="40%"></h3>
+                <h3 class="col-2"><img src="/img/usps.svg" width="100%"></h3>
             </div>
             <div class="row p-5">
-                <h4><i>Item Description</i></h4>
+                <h2><i>Item Description</i></h2>
             </div>
             <div>
                 <img src="/img/placed.svg" class="mb-3" alt="Your order has been placed">
@@ -84,7 +84,7 @@
                     <h3><b>{{this.title}}</b></h3>
                 </div>
                 <div class="row">
-                    <a href="#" alt="Tracking Number">
+                    <a href="https//:www.google.com/{{this.tracking}}" alt="Tracking Number">
                         <h4>{{this.tracking}}</h4>
                     </a>
                 </div>
@@ -103,72 +103,69 @@
 {{/each}}
 
 {{! delivered orders begins }}
- {{!-- <div class="row">
-        <div class="container col-12 header-style">
-            <img src="/img/delivered-orders.svg" width="68%">
-        </div>
+<div class="row">
+    <div class="container col-12 text-center header-style my-3">
+        <img src="/img/delivered-orders.svg" width="75%">
     </div>
-
-    <div class="row">
-        <div class="col-1">
-        
-        </div>
-        <div class="container col-10 shadow-lg m-3 rounded white2background">
-            <div class="row p-5 border-bottom border-secondary">
-                <div class="col-8">
-                    <div class="row">
-                        <h3><b>Name of Package</b></h3>
-                    </div>
-                    <div class="row">
-                        <a href="#" alt="Tracking Number">
-                            <h4>Tracking Number</h4>
-                        </a>
-                    </div>
-                </div>
-                <h3 class="col-4 ml-auto"><img src="/img/ups.svg" width="40%"></h3>
-            </div>
-            <div class="row p-5">
-                <h4><i>Item Description</i></h4>
-            </div>
-            <div>
-                <img src="/img/delivered.svg" class="mb-3" alt="Your order has been delivered">
-            </div>
-        </div>
-        <div class="col-1">
-        </div>
-    </div>
+</div>
 
 <div class="row">
     <div class="col-1">
 
     </div>
-    <div class="container col-10 shadow-lg m-3 rounded white2background">
-        <div class="row p-5 border-bottom border-secondary">
-            <div class="col-8">
+    <div class="container col-10 shadow-lg my-3 rounded white2background">
+        <div class="row py-4 px-5 border-bottom border-secondary">
+            <div class="col-10">
                 <div class="row">
-                    <h3><b>{{this.title}}</b></h3>
+                    <h1><b>Name of Package</b></h1>
                 </div>
                 <div class="row">
-                    <a href="https//:www.google.com/{{this.tracking}}" alt="Tracking Number">
-                    <h4>{{this.tracking}}</h4>
+                    <a href="https//:www.google.com/9400109206094987262729" alt="Tracking Number">
+                        <h2>Tracking Number</h2>
                     </a>
                 </div>
             </div>
-            <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+            <h3 class="col-2"><img src="/img/fedex.svg" width="100%"></h3>
         </div>
         <div class="row p-5">
-            <h4>{{this.description}}</h4>
+            <h2><i>Item Description</i></h2>
+        </div>
+        <div>
+            <img src="/img/delivered.svg" class="mb-3" alt="Your order has been delivered">
         </div>
     </div>
     <div class="col-1">
     </div>
-</div> --}}
-{{! delivered orders ends }}
+</div>
+
 
 {{#each shipments}}
 {{#if delivered}}
+    <div class="row">
+        <div class="col-1">
 
-
+        </div>
+        <div class="container col-10 shadow-lg m-3 rounded white2background">
+            <div class="row p-5 border-bottom border-secondary">
+                <div class="col-8">
+                    <div class="row">
+                        <h3><b>{{this.title}}</b></h3>
+                    </div>
+                    <div class="row">
+                        <a href="https//:www.google.com/{{this.tracking}}" alt="Tracking Number">
+                        <h4>{{this.tracking}}</h4>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+            </div>
+            <div class="row p-5">
+                <h4>{{this.description}}</h4>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
 
 {{/if}}
 {{/each}}
