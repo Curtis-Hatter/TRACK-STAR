@@ -44,7 +44,7 @@ $(document).ready(() => {
       user: id
     })
       .then(() => {
-        window.location.reload;
+        window.location.replace("/packages/" + username);
         // alert("Something Happened");
       })
       .catch(handlePackageErr);
