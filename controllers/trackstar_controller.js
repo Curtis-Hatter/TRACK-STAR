@@ -13,6 +13,14 @@ module.exports = function(app) {
     res.render("login");
   });
 
+  app.get("/delivered", (req, res) => {
+    // console.log(req.User);
+    if (req.user) {
+      return res.render("delivered");
+    }
+    res.redirect("/delivered");
+  });
+
   app.get("/signup", (req, res) => {
     if (req.user) {
       return res.redirect("/packages");
@@ -45,6 +53,26 @@ module.exports = function(app) {
     // console.log(shipments);
     // console.log(shipments[0].dataValues);
     res.render("index", { shipments: shipments });
+  });
+  app.get("/delivered/:id", isAuthenticated, async (req, res) => {
+    console.log("mark 1 hit");
+    const shipments = await db.shipments.findAll({
+      where: {
+        user: req.params.id
+        // delivered: false
+      },
+      raw: true
+      // order: [["expDelivery", "DESC"]]
+    });
+    // console.log(shipments[0].dataValues);
+
+    // const hbsObject = {
+    //   shipments: shipments[0].dataValues
+    // };
+    // console.log(hbsObject);
+    // console.log(shipments);
+    // console.log(shipments[0].dataValues);
+    res.render("delivered", { shipments: shipments });
   });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
