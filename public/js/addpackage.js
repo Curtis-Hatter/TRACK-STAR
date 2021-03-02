@@ -5,15 +5,14 @@ $(document).ready(() => {
   const descriptionInput = $("input#description-input");
   const trackingInput = $("input#tracking-input");
   const carrierInput = $("select#carrierSelect");
-  const addPackageButton = $("#sign-up-button");
+  const addPackageButton = $("#add-package-button");
   const username = localStorage.getItem("currentUser");
   // console.log(username);
   // console.log(addPackageButton.value);
   // console.log("WORLD");
-  const addPackage = event => {
+  const addPackage = () => {
     // setTimeout(() => { alert("Hello"); }, 3000);
     // console.log("HELLO!!!");
-    event.preventDefault();
     const packageData = {
       title: titleInput.val().trim(),
       description: descriptionInput.val().trim(),
@@ -21,7 +20,7 @@ $(document).ready(() => {
       carrier: carrierInput.val(),
       id: username
     };
-    // console.log(packageData);
+    console.log(packageData);
     newPackage(
       packageData.title,
       packageData.description,
@@ -38,9 +37,10 @@ $(document).ready(() => {
   function newPackage(title, description, tracking, carrier, id) {
     // let isDelivered = false;
     console.log("HELLO!");
+    console.log (carrier);
     if(carrier === "USPS"){
       $.get("/tracking/usps/" + tracking).then( res => {
-      // console.log(res);
+        console.log(res);
         // console.log(res.indexOf("delivered"));
         if(res.indexOf("delivered") !== -1)
         {
@@ -48,12 +48,32 @@ $(document).ready(() => {
             title: title,
             description: description,
             tracking: tracking,
-            carrier: carrier,
+            carrier: "/img/usps.svg",
             user: id,
             delivered: true
           })
             .then(() => {
-              window.location.reload;
+              console.log("hello");
+              const id = localStorage.getItem("currentUser");
+              window.location.href = "/delivered/" + id;
+              // alert("Something Happened");
+            })
+            .catch(handlePackageErr);
+        }
+        else
+        {
+          $.post("/api/newpackage", {
+            title: title,
+            description: description,
+            tracking: tracking,
+            carrier: "/img/usps.svg",
+            user: id,
+            delivered: false
+          })
+            .then(() => {
+              console.log("hello");
+              const id = localStorage.getItem("currentUser");
+              window.location.href = "/packages/" + id;
               // alert("Something Happened");
             })
             .catch(handlePackageErr);
@@ -72,12 +92,30 @@ $(document).ready(() => {
             title: title,
             description: description,
             tracking: tracking,
-            carrier: carrier,
+            carrier: "/img/ups.svg",
             user: id,
             delivered: true
           })
             .then(() => {
-              window.location.reload;
+              const id = localStorage.getItem("currentUser");
+              window.location.href = "/delivered/" + id;
+              // alert("Something Happened");
+            })
+            .catch(handlePackageErr);
+        }
+        else
+        {
+          $.post("/api/newpackage", {
+            title: title,
+            description: description,
+            tracking: tracking,
+            carrier: "/img/ups.svg",
+            user: id,
+            delivered: false
+          })
+            .then(() => {
+              const id = localStorage.getItem("currentUser");
+              window.location.href = "/packages/" + id;
               // alert("Something Happened");
             })
             .catch(handlePackageErr);
@@ -95,12 +133,30 @@ $(document).ready(() => {
             title: title,
             description: description,
             tracking: tracking,
-            carrier: carrier,
+            carrier: "/img/fedex.svg",
             user: id,
             delivered: true
           })
             .then(() => {
-              window.location.reload;
+              const id = localStorage.getItem("currentUser");
+              window.location.href = "/delivered/" + id;
+              // alert("Something Happened");
+            })
+            .catch(handlePackageErr);
+        }
+        else
+        {
+          $.post("/api/newpackage", {
+            title: title,
+            description: description,
+            tracking: tracking,
+            carrier: "/img/fedex.svg",
+            user: id,
+            delivered: false
+          })
+            .then(() => {
+              const id = localStorage.getItem("currentUser");
+              window.location.href = "/packages/" + id;
               // alert("Something Happened");
             })
             .catch(handlePackageErr);
