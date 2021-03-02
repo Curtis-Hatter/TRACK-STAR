@@ -1,5 +1,3 @@
-const user = require("../../models/user");
-
 // prettier-ignore
 $(document).ready(() => {
   // Getting references to our form and input
@@ -19,7 +17,7 @@ $(document).ready(() => {
       confirmPassword: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password || !user.Data.username) {
+    if (!userData.email || !userData.password || !userData.username) {
       return alert("Please enter valid email, username, and password");
     }
 
