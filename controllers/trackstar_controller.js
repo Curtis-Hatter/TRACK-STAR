@@ -98,13 +98,15 @@ module.exports = function(app) {
 
   // Route for adding new package to the database
   app.post("/api/newpackage", (req, res) => {
+    // console.log(req.body.delivered);
     db.shipments
       .create({
         user: req.body.user,
         title: req.body.title,
         description: req.body.description,
         tracking: req.body.tracking,
-        carrier: req.body.carrier
+        carrier: req.body.carrier,
+        delivered: req.body.delivered
       })
       .then(dbShipments => res.json(dbShipments));
   });
