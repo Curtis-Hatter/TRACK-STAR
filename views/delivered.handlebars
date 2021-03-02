@@ -5,10 +5,10 @@
         </a>
         <ul class="nav nav-tabs justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">All Orders</a>
+                <a class="nav-link active" href="#">Pending</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white2text" href="#">Delivered</a>
+                <a class="nav-link white2text" aria-current="page" href="#">Delivered</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link white2text" href="#">Log Out</a>
@@ -19,82 +19,79 @@
 
 {{! delivered orders begins }}
 <div class="row">
-        <div class="container col-12 header-style">
-            <img src="/img/delivered-orders.svg" width="68%">
-        </div>
+    <div class="container col-12 text-center header-style my-3">
+        <img src="/img/delivered-orders.svg" width="75%">
     </div>
-
-    <div class="row">
-        <div class="col-1">
-        
-        </div>
-        <div class="container col-10 shadow-lg m-3 rounded white2background">
-            <div class="row p-5 border-bottom border-secondary">
-                <div class="col-8">
-                    <div class="row">
-                        <h3><b>Name of Package</b></h3>
-                    </div>
-                    <div class="row">
-                        <a href="#" alt="Tracking Number">
-                            <h4>Tracking Number</h4>
-                        </a>
-                    </div>
-                </div>
-                <h3 class="col-4 ml-auto"><img src="/img/ups.svg" width="40%"></h3>
-            </div>
-            <div class="row p-5">
-                <h4><i>Item Description</i></h4>
-            </div>
-            <div>
-                <img src="/img/delivered.svg" class="mb-3" alt="Your order has been delivered">
-            </div>
-        </div>
-        <div class="col-1">
-        </div>
-    </div>
-
-{{#each shipments}}
-{{#if delivered}}
+</div>
 
 <div class="row">
     <div class="col-1">
 
     </div>
-    <div class="container col-10 shadow-lg m-3 rounded white2background">
-        <div class="row p-5 border-bottom border-secondary">
-            <div class="col-8">
+    <div class="container col-10 shadow-lg my-3 rounded white2background">
+        <div class="row py-4 px-5 border-bottom border-secondary">
+            <div class="col-10">
                 <div class="row">
-                    <h3></h3>
-                    <h3><b>{{this.title}}</b></h3>
+                    <h1><b>Name of Package</b></h1>
                 </div>
                 <div class="row">
-                    <a href="#" alt="Tracking Number">
-                        <h4>{{this.tracking}}</h4>
+                    <a href="https//:www.google.com/9400109206094987262729" alt="Tracking Number">
+                        <h2>Tracking Number</h2>
                     </a>
                 </div>
             </div>
-            <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+            <h3 class="col-2"><img src="/img/fedex.svg" width="100%"></h3>
         </div>
         <div class="row p-5">
-            <h4><i>{{this.description}}</i></h4>
+            <h2><i>Item Description</i></h2>
+        </div>
+        <div>
+            <img src="/img/delivered.svg" class="mb-3" alt="Your order has been delivered">
         </div>
     </div>
     <div class="col-1">
-
     </div>
 </div>
 
+
+{{#each shipments}}
+{{#if delivered}}
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="container col-10 shadow-lg m-3 rounded white2background">
+            <div class="row p-5 border-bottom border-secondary">
+                <div class="col-8">
+                    <div class="row">
+                        <h3><b>{{this.title}}</b></h3>
+                    </div>
+                    <div class="row">
+                        <a href="https//:www.google.com/{{this.tracking}}" alt="Tracking Number">
+                        <h4>{{this.tracking}}</h4>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="col-4 ml-auto">{{this.carrier}}</h3>
+            </div>
+            <div class="row p-5">
+                <h4>{{this.description}}</h4>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
 
 {{/if}}
 {{/each}}
 </div>
+
 
 <footer class="footer py-4 font-small text-dark">
     <div class="footer-copyright text-center container-fluid">
         © Track Star LLC, 2021
     </div>
 </footer>
-
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/homepage.js"></script>
