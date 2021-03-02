@@ -36,7 +36,6 @@ $(document).ready(() => {
   };
     
   function newPackage(title, description, tracking, carrier, id) {
-<<<<<<< HEAD
     // let isDelivered = false;
     console.log("HELLO!");
     if(carrier === "USPS"){
@@ -114,20 +113,6 @@ $(document).ready(() => {
     }
     // alert(isDelivered);
     
-=======
-    $.post("/api/newpackage", {
-      title: title,
-      description: description,
-      tracking: tracking,
-      carrier: carrier,
-      user: id
-    })
-      .then(() => {
-        window.location.replace("/packages/" + username);
-        // alert("Something Happened");
-      })
-      .catch(handlePackageErr);
->>>>>>> a1a31b824289c9d62ea406c16c8b783a89b2cef0
   }
     
   function handlePackageErr(err) {
