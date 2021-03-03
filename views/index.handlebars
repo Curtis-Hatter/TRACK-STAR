@@ -41,7 +41,7 @@
     <div class="col-1">
         {{!-- empty column --}}
     </div>
-    <div class="container col-10 shadow-lg my-3 rounded white2background">
+    <div class="container col-10 shadow-lg my-4 rounded white2background">
         <div class="row py-4 px-5 border-bottom border-secondary">
             <div class="col-10">
                 <div class="row">
@@ -53,7 +53,7 @@
                     </a>
                 </div>
             </div>
-            <h3 class="col-2"><img src="/img/usps.svg" width="100%"></h3>
+            <h3 class="col-2"><img src="/img/ups.svg" width="70%"></h3>
         </div>
         <div class="row p-5">
             <h2><i>Item Description</i></h2>
@@ -81,7 +81,7 @@
                     <h1><b>{{this.title}}</b></h1>
                 </div>
                 <div class="row">
-                    <a class = "link-color" href="https://www.google.com/search?q=9400111202555339949769" alt="Tracking Number">
+                    <a class = "link-color" href={{this.trackingLink}} alt="Tracking Number">
                         <h2>{{this.tracking}}</h2>
                     </a>
                 </div>
