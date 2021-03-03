@@ -44,7 +44,15 @@ module.exports = function(app) {
       },
       raw: true
     });
-    res.render("index", { shipments: shipments });
+    console.log(shipments);
+    const trackShipments = shipments.map(shipment => {
+      return {
+        ...shipment,
+        trackingLink: `https://www.google.com/search?q=${shipment.tracking}`
+      };
+    });
+    console.log(trackShipments);
+    res.render("index", { shipments: trackShipments });
   });
 
   // Route for getting orders in delivered tab
@@ -55,22 +63,28 @@ module.exports = function(app) {
       },
       raw: true
     });
-    res.render("delivered", { shipments: shipments });
+    const trackShipments = shipments.map(shipment => {
+      return {
+        ...shipment,
+        trackingLink: `https://www.google.com/search?q=${shipment.tracking}`
+      };
+    });
+    console.log(trackShipments);
+    res.render("delivered", { shipments: trackShipments });
   });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json(req.user);
   });
 
-  // For future user functionality
-  // app.get("/api/user/:email", async (req, res) => {
-  //   // console.log(req.params.email);
-  //   const username = await db.User.findOne({
-  //     where: { email: req.params.email }
-  //   });
-  //   // console.log(username.username);
-  //   res.send(username.username);
-  // });
+  app.get("/api/user/:email", async (req, res) => {
+    // console.log(req.params.email);
+    const username = await db.User.findOne({
+      where: { email: req.params.email }
+    });
+    // console.log(username.username);
+    res.send(username.username);
+  });
 
   // Post route for creating user
   app.post("/api/signup", (req, res) => {
