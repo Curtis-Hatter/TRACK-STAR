@@ -1,14 +1,13 @@
 # TRACKSTAR
 ## *Track Your Online Orders All in One Place!*
 
-*Technologies used: Javascript, Heroku, XML-JS, Handlebars, Adobe Illustrator*
+*Technologies used: Javascript, Axios Heroku, XML-JS, Handlebars, Adobe Illustrator*
 
 ------------
 
 Link to TRACK STAR application : https://track-star-2021.herokuapp.com/
 
 ------------
-
 
 Our initial brain storming session lead us down some interesting paths. Originally, we wanted to create an app that would provide pairings for different types of snacks with different types of alcoholic beverages. We also wanted to add functionality for users to create profiles, and add their own drink + snack pairing. Once we realized the scope of a project that size, we quickly scrapped it for our backup. 
 
@@ -31,5 +30,10 @@ Future implementation would be mostly user interface updates with the back end f
 
 All in all, one could say Team TRACK STAR really hit it out of the park considering our goal and the provided time. We surprised not only our classmates but ourselves with our drive and determination. We had faith in our idea, ourselves, and each other, and for now, MVP was reached. 
 
+------------
 
-<img src="#" alt="text"/>
+<img src="public/image/final-login.png" alt="Finalized Login Page"/>
+<img src="public/image/final-signUp.png" alt="Finalized Sign Up Page"/>
+<img src="public/image/final-homePage.png" alt="Finalized Home Page"/>
+<img src="public/image/final-delivered.png" alt="Finalized Delivered Page"/>
+<img src="public/image/final-newPackage.png" alt="Finalized Add a Package Page"/>
