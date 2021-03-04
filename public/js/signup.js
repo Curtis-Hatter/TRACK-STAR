@@ -17,8 +17,8 @@ $(document).ready(() => {
       confirmPassword: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password) {
-      return;
+    if (!userData.email || !userData.password || !userData.username) {
+      return alert("Please enter valid email, username, and password");
     }
 
     // console.log(userData.passwordInput);
