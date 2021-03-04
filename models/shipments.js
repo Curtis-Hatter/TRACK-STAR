@@ -1,5 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const Shipments = sequelize.define("shipments", {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false
+    },
     user: {
       type: DataTypes.STRING,
       allowNull: false
