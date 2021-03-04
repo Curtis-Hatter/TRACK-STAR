@@ -17,8 +17,8 @@ TRACK STAR allows a user to keep track of all their pending deliveries for their
 
 Once the information has been provided, they click the Add Package button, and handlebars takes care of adding their new package to their home page. Currently, we are able to display 3 different statuses of the shipping process; Placed, In Transit, and Delivered. Once a package has been delivered, 
 
-<img src="public/image/wireframe1.jpg" alt="Wireframe Log-in Mockup"/>
-<img src="public/image/wireframe2.jpg" alt="Wireframe Home Page Mockup"/>
+<img src="/public/img/wireframe1.jpg" alt="Wireframe Log-in Mockup"/>
+<img src="/public/img/wireframe2.jpg" alt="Wireframe Home Page Mockup"/>
 
 We began with a wireframe, which was mocked up by our Front End Graphic Designer, Jessilin Lugo. As a team, we quickly decided the functionality and different elements within the application, and once we had the wireframe completed, we were ready to get started. After the wire frame was complete, and each individual element was decided and agreed upon, we split up into teams; front end and back end. 
 
@@ -32,8 +32,8 @@ All in all, one could say Team TRACK STAR really hit it out of the park consider
 
 ------------
 
-<img src="public/image/final-login.png" alt="Finalized Login Page"/>
-<img src="public/image/final-signUp.png" alt="Finalized Sign Up Page"/>
-<img src="public/image/final-homePage.png" alt="Finalized Home Page"/>
-<img src="public/image/final-delivered.png" alt="Finalized Delivered Page"/>
-<img src="public/image/final-newPackage.png" alt="Finalized Add a Package Page"/>
+<img src="/public/img/final-login.png" alt="Finalized Login Page"/>
+<img src="/public/img/final-signUp.png" alt="Finalized Sign Up Page"/>
+<img src="/public/img/final-homePage.png" alt="Finalized Home Page"/>
+<img src="/public/img/final-delivered.png" alt="Finalized Delivered Page"/>
+<img src="/public/img/final-newPackage.png" alt="Finalized Add a Package Page"/>
