@@ -33,7 +33,7 @@ All in all, one could say Team TRACK STAR really hit it out of the park consider
 ------------
 
 <img src="/public/img/final-login.png" alt="Finalized Login Page"/>
-<img src="/public/img/final-signUp.png" alt="Finalized Sign Up Page"/>
+<img src="/public/img/final-signup.png" alt="Finalized Sign Up Page"/>
 <img src="/public/img/final-homePage.png" alt="Finalized Home Page"/>
 <img src="/public/img/final-delivered.png" alt="Finalized Delivered Page"/>
 <img src="/public/img/final-newPackage.png" alt="Finalized Add a Package Page"/>
